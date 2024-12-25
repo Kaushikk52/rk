@@ -1,0 +1,92 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaStore, FaFileContract, FaInfoCircle, FaExchangeAlt, FaBox, FaCreditCard, FaTools, FaLink, FaComments, FaUserShield, FaExclamationTriangle, FaBan, FaHandPaper, FaBalanceScale, FaFileSignature, FaGavel, FaEdit } from 'react-icons/fa';
+import Section from '../components/Section';
+
+const Conditions: React.FC = () => {
+  const [activeSection, setActiveSection] = useState<string | null>('overview');
+
+  const sections = [
+    { id: 'overview', title: 'Overview', icon: FaInfoCircle },
+    { id: 'online-store-terms', title: 'Online Store Terms', icon: FaStore },
+    { id: 'general-conditions', title: 'General Conditions', icon: FaFileContract },
+    { id: 'accuracy', title: 'Accuracy of Information', icon: FaExchangeAlt },
+    { id: 'modifications', title: 'Modifications to Service', icon: FaEdit },
+    { id: 'products', title: 'Products or Services', icon: FaBox },
+    { id: 'billing', title: 'Billing Information', icon: FaCreditCard },
+    { id: 'optional-tools', title: 'Optional Tools', icon: FaTools },
+    { id: 'third-party-links', title: 'Third-Party Links', icon: FaLink },
+    { id: 'user-comments', title: 'User Comments', icon: FaComments },
+    { id: 'personal-information', title: 'Personal Information', icon: FaUserShield },
+    { id: 'errors', title: 'Errors and Omissions', icon: FaExclamationTriangle },
+    { id: 'prohibited-uses', title: 'Prohibited Uses', icon: FaBan },
+    { id: 'disclaimer', title: 'Disclaimer of Warranties', icon: FaHandPaper },
+    { id: 'indemnification', title: 'Indemnification', icon: FaBalanceScale },
+    { id: 'severability', title: 'Severability', icon: FaFileSignature },
+    { id: 'termination', title: 'Termination', icon: FaGavel },
+    { id: 'entire-agreement', title: 'Entire Agreement', icon: FaFileContract },
+    { id: 'governing-law', title: 'Governing Law', icon: FaGavel },
+    { id: 'changes', title: 'Changes to Terms', icon: FaEdit },
+  ];
+
+  return (
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <motion.h1 
+          className="text-4xl md:text-5xl font-bold mb-8 text-center text-blue-800"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Terms and Conditions
+        </motion.h1>
+        
+        <div className="grid md:grid-cols-3 gap-8">
+          <motion.div 
+            className="md:col-span-1 bg-white rounded-lg shadow-lg p-6"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h2 className="text-2xl font-semibold mb-4 text-blue-700">Sections</h2>
+            <ul className="space-y-2">
+              {sections.map((section) => (
+                <li key={section.id}>
+                  <button
+                    onClick={() => setActiveSection(section.id)}
+                    className={`w-full text-left px-4 py-2 rounded transition-colors flex items-center ${
+                      activeSection === section.id
+                        ? 'bg-blue-600 text-white'
+                        : 'text-blue-700 hover:bg-blue-100'
+                    }`}
+                  >
+                    <section.icon className="mr-2" />
+                    {section.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+          
+          <motion.div 
+            className="md:col-span-2 bg-white rounded-lg shadow-lg p-6"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            {sections.map((section) => (
+              <Section
+                key={section.id}
+                id={section.id}
+                title={section.title}
+                icon={section.icon}
+                isActive={activeSection === section.id}
+              />
+            ))}
+          </motion.div>
+        </div>
+      </main>
+  );
+};
+
+export default Conditions;
+
