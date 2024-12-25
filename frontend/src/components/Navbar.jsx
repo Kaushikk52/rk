@@ -32,9 +32,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-white text-black shadow-lg p-2">
-      <div className="flex items-center justify-between max-w-7xl container mx-auto">
-        <div className="flex items-center">
+    <nav className="w-full bg-white text-black shadow-lg p-2 flex-row">
+        <div className="text-xl font-semibold text-gray-800 uppercase flex justify-start items-start">
           <h1 className="font-bold text-2xl md:text-4xl my-2 mx-4 flex gap-2 items-start">
             <span className="text-[#ffd333]">RK</span>
             <span className="text-black">Insurance</span>
@@ -79,7 +78,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop menu */}
-        <div className="hidden md:flex bg-gray-100 px-1.5 py-1 items-center list-none rounded">
+        <div className="bg-gray-100 px-1.5 py-1 hidden md:flex items-center space-x-6 list-none rounded">
           {navitems.map((item) => (
             <NavLink
               key={item.id}
@@ -102,7 +101,7 @@ const Navbar = () => {
                 Login
               </button>
             </div>
-      </div>
+
 
       {/* Mobile menu */}
       {isMenuOpen && (

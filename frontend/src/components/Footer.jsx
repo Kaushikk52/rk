@@ -8,7 +8,6 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoIosCall } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { FaChevronRight } from "react-icons/fa";
-
 import { Fade } from "react-awesome-reveal";
 
 const Footer = () => {
