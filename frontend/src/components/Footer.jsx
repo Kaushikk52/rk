@@ -90,6 +90,15 @@ const Footer = () => {
                     </li>
                   </Link>
 
+                  <Link to="/services">
+                    <li className="flex items-center gap-3 py-1 group text-[#a7a8b4]">
+                      <FaChevronRight />
+                      <p className="group-hover:text-lg group-hover:text-white transition-all duration-200 ease-in-out">
+                        Services
+                      </p>
+                    </li>
+                  </Link>
+
                   <Link to="/about-us">
                     <li className="flex items-center gap-3 py-1 group text-[#a7a8b4]">
                       <FaChevronRight />
@@ -99,20 +108,11 @@ const Footer = () => {
                     </li>
                   </Link>
 
-                  <Link to="#">
+                  <Link to="/contact-us">
                     <li className="flex items-center gap-3 py-1 group text-[#a7a8b4]">
                       <FaChevronRight />
                       <p className="group-hover:text-lg group-hover:text-white transition-all duration-200 ease-in-out">
-                        Technology
-                      </p>
-                    </li>
-                  </Link>
-
-                  <Link to="/our-services">
-                    <li className="flex items-center gap-3 py-1 group text-[#a7a8b4]">
-                      <FaChevronRight />
-                      <p className="group-hover:text-lg group-hover:text-white transition-all duration-200 ease-in-out">
-                        Services
+                        Contact Us
                       </p>
                     </li>
                   </Link>
