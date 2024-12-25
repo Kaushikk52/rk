@@ -18,12 +18,12 @@ import "swiper/css/pagination"
 const MiniSlider = () => {
 
     const information = [
-        { id: 1, text: 'small information here smalll informasdsd ssssssssss', image: Img1, },
-        { id: 2, text: 'small information here', image: Img2, },
-        { id: 3, text: 'small information here', image: Img3, },
-        { id: 4, text: 'small information here', image: Img4, },
-        { id: 5, text: 'small information here', image: Img5, },
-        { id: 6, text: 'small information here', image: Img6, },
+        { id: 1, text: 'some text here some text here some tect herre', title: 'small information here', image: Img1, },
+        { id: 2, text: 'some text here some text here some text here', image: Img2, },
+        { id: 3, text: 'some text here', title: 'small information here', image: Img3, },
+        { id: 4, text: 'some text here', title: 'small information here', image: Img4, },
+        { id: 5, text: 'some text here', title: 'small information here', image: Img5, },
+        { id: 6, text: 'some text here', title: 'small information here', image: Img6, },
     ]
 
     return (
@@ -32,7 +32,7 @@ const MiniSlider = () => {
                 <div className="md:max-w-7xl w-full container mx-auto px-4">
                     <Swiper
                         slidesPerView={3}
-                        slidesPerGroup={3}
+                        slidesPerGroup={1}
                         grabCursor={true}
                         keyboard={{ enabled: true }}
                         scrollbar={false}
@@ -47,19 +47,39 @@ const MiniSlider = () => {
                         // }}
                         speed={1000}
                         loop={true}
-                        spaceBetween={20}
+                        breakpoints={{
+                            0: {
+                                slidesPerView: 1,
+                                slidesPerGroup: 1,
+                                spaceBetween: 20,
+                            },
+                            768: {
+                                slidesPerView: 2,
+                                slidesPerGroup: 1,
+                                spaceBetween: 20,
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                                slidesPerGroup: 1,
+                                spaceBetween: 20,
+                            },
+                         
+                        }}
                     >
                         {information.map((info) => (
                             <SwiperSlide key={info.id} className="pb-12 ">
-                                <div className='flex justify-between items-center bg-gray-100 py-2 px-5'>
-                                    <div className='border'>
-                                        <h1 className='text-xl font-medium'>{info.text}</h1>
+                                <div className='grid grid-cols-12 gap-1 md:gap-0 bg-white border-2 rounded-lg py-2 px-4'>
+                                    <div className='col-span-9 content-center text-center'>
+                                        {info.title &&
+                                        <h1 className='text-sm md:text-base font-semibold pb-1 text-[#253858]'>{info.title}</h1>
+                                        }
+                                        <p className='text-xs md:text-sm font-medium text-gray-800'>{info.text}</p>
                                     </div>
-                                    <div className='w-1/3'>
+                                    <div className='col-span-3 content-center'>
                                     <img
                                     src={info.image}
                                     alt='image'
-                                    className='h-16 w-16'
+                                    className='h-16 w-16 xl:h-20 xl:w-20'
                                     />
                                     </div>
                                 </div>
