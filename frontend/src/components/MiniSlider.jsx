@@ -41,10 +41,10 @@ const MiniSlider = () => {
                             clickable: true,
                         }}
                         modules={[Keyboard, Scrollbar, Navigation, Pagination, Autoplay]}
-                        // autoplay={{
-                        //     delay: 3000,
-                        //     pauseOnMouseEnter: true,
-                        // }}
+                        autoplay={{
+                            delay: 3000,
+                            pauseOnMouseEnter: true,
+                        }}
                         speed={1000}
                         loop={true}
                         breakpoints={{
