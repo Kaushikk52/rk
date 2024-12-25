@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X } from 'lucide-react';
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
 
   const navitems = [
     {
@@ -47,24 +44,32 @@ const Navbar = () => {
         {/* Mobile menu button */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="p-2">
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
 
         {/* Desktop menu */}
         <div className="hidden md:flex bg-gray-100 px-1.5 py-1 items-center list-none rounded">
           {navitems.map((item) => (
-            <Link
+            <NavLink
               key={item.id}
-              href={item.link}
-              className={
-                pathname === item.link
+              to={item.link}
+              className={({ isActive }) =>
+                isActive
                   ? "text-xl font-medium bg-[#ffd333] text-black py-1.5 px-6 cursor-pointer rounded transition-colors duration-300 ease-in-out"
                   : "text-xl font-medium py-2 px-6 cursor-pointer hover:text-[#ffd333] duration-300 ease-in-out"
               }
             >
               {item.name}
-            </Link>
+            </NavLink>
           ))}
         </div>
 
@@ -81,18 +86,18 @@ const Navbar = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navitems.map((item) => (
-              <Link
+              <NavLink
                 key={item.id}
-                href={item.link}
-                className={
-                  pathname === item.link
+                to={item.link}
+                className={({ isActive }) =>
+                  isActive
                     ? "block text-xl font-medium bg-[#ffd333] text-black py-2 px-3 rounded transition-colors duration-300 ease-in-out"
                     : "block text-xl font-medium py-2 px-3 text-black hover:text-[#ffd333] duration-300 ease-in-out"
                 }
                 onClick={toggleMenu}
               >
                 {item.name}
-              </Link>
+              </NavLink>
             ))}
             <button className="w-full text-left px-3 py-2 text-xl font-medium text-[#ffd333] hover:bg-[#ffd333] hover:text-black rounded transition-colors duration-300 ease-in-out">
               Login
