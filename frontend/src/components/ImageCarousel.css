@@ -1,0 +1,50 @@
+/* .carousel-wrapper {
+  position: relative;
+  width: 600px; 
+  margin-left: auto; 
+} */
+
+/* Image carousel container */
+.image-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%; /* Makes the image fill the container */
+  height: auto;
+  display: block;
+}
+
+/* Custom Pagination - outside the carousel */
+.swiper-pagination-container {
+  position: absolute;
+  bottom: -32px; /* Moves it below the image carousel */
+  left: 50%; /* Centers it horizontally */
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Custom pagination button styles */
+.custom-pagination-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #eeeeee;
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  margin: 0 16px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+}
+
+.custom-pagination-btn.active {
+  background-color: #776bfd;
+  font-weight: bold;
+}
