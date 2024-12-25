@@ -86,8 +86,8 @@ const Navbar = () => {
               to={item.link}
               className={({ isActive }) =>
                 isActive
-                  ? "text-xl font-medium bg-[#ffd333] text-black py-1.5 px-6 cursor-pointer rounded transition-colors duration-300 ease-in-out"
-                  : "text-xl font-medium py-2 px-6 cursor-pointer hover:text-[#ffd333] duration-300 ease-in-out"
+                  ? "text-lg font-semibold bg-[#ffd333] text-black py-1.5 px-6 cursor-pointer rounded transition-colors duration-300 ease-in-out"
+                  : "text-lg font-medium py-2 px-6 cursor-pointer hover:text-[#ffd333] duration-300 ease-in-out"
               }
             >
               {item.name}

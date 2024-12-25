@@ -13,8 +13,8 @@ import MiniSlider from '../components/MiniSlider';
 const Home = () => {
   return (
     <>
-      <div className='flex items-center my-10 justify-between max-w-7xl container mx-auto px-4'>
-        <div className='lg:flex flex-col pl-4 w-4/5 hidden'>
+      <div className='flex items-center justify-between max-w-7xl container mx-auto px-4'>
+        <div className='md:flex flex-col pl-4 lg:w-6/12 hidden justify-start'>
           <div className='text-4xl font-light text-[#253858] grid grid-rows-2 my-6'>
             <div className='mb-2'>
               <h1>Lets Find You</h1>
@@ -46,7 +46,7 @@ const Home = () => {
           </div>
 
         </div>
-        <div className='w-full'>
+        <div className='mt-10 justify-end lg:w-5/12 min-[320px]:w-full md:w-5/12'>
           <ImageCarousel />
         </div>
       </div>
