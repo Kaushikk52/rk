@@ -60,8 +60,8 @@ const Footer = () => {
                   <div className="flex items-start space-x-4">
                     <FaLocationDot className="h-6 w-6" />
                     <p className="text-sm sm:text-base">
-                      A - 417, 1st Floor, TTC Industrial Estate, MIDC, Mahape,
-                      Navi Mumbai - 400710
+                      D - 319, Shanti Shopping Center, Mira road East,
+                      Thane - 401107
                     </p>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -153,7 +153,7 @@ const Footer = () => {
             <div className="flex space-x-1 text-[#a7a8b4] justify-center sm:justify-start">
               <p>©</p>
               <p className="text-cyan-500 hover:text-white transition-all cursor-pointer">
-                Manner & Skill Integrated Services Pvt. Ltd.
+                RK Insurance Services 
               </p>
               <p>, All Rights Reserved.</p>
             </div>
