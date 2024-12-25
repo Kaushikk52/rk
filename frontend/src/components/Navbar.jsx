@@ -33,9 +33,9 @@ const Navbar = () => {
 
   return (
     <nav className="w-full bg-white text-black shadow-lg p-2">
-      <div className="flex items-center justify-between max-w-7xl container mx-auto">
-        <div className="flex items-center">
-          <h1 className="font-bold text-2xl md:text-4xl my-2 mx-4 flex gap-2 items-start">
+      <div className="flex items-center justify-between  max-w-7xl container mx-auto">
+        <div className="flex justify-start items-center">
+          <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl my-2 mx-4 flex gap-2 items-start">
             <span className="text-[#ffd333]">RK</span>
             <span className="text-black">Insurance</span>
           </h1>
@@ -79,26 +79,25 @@ const Navbar = () => {
         </div>
 
         {/* Desktop menu */}
-        <div className="hidden md:flex bg-gray-100 px-1.5 py-1 items-center list-none rounded">
+        <div className="hidden md:flex justify-center bg-gray-100 px-1.5 py-1 items-center list-none rounded">
           {navitems.map((item) => (
             <NavLink
               key={item.id}
               to={item.link}
               className={({ isActive }) =>
                 isActive
-                  ? "text-lg font-semibold bg-[#ffd333] text-black py-1.5 px-6 cursor-pointer rounded transition-colors duration-300 ease-in-out"
-                  : "text-lg font-medium py-2 px-6 cursor-pointer hover:text-[#ffd333] duration-300 ease-in-out"
+                  ? "md:text-base lg:text-lg font-semibold bg-[#ffd333] text-black py-1.5 px-6 md:py-1.5 md:px-4 lg:py-2 lg:px-6 cursor-pointer rounded transition-colors duration-300 ease-in-out"
+                  : "md:text-base lg:text-lg font-medium py-2 px-6 md:py-1.5 md:px-4 lg:py-2 lg:px-6 cursor-pointer hover:text-[#ffd333] duration-300 ease-in-out"
               }
             >
               {item.name}
             </NavLink>
           ))}
-          <div className="hidden md:block">
-          </div>
+
         </div>
             {/* Login button (hidden on mobile) */}
-            <div className="items-end phone-none">
-              <button className="px-10 py-1.5 border-2 text-[#ffd333] border-[#ffd333] rounded hover:bg-[#ffd333] hover:border-transparent hover:text-black font-semibold text-xl duration-200 ease-in-out transition-all">
+            <div className="items-end phone-none justify-end">
+              <button className="px-10 md:px-4 lg:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl md:text-base lg:text-xl border-2 text-[#ffd333] border-[#ffd333] rounded hover:bg-[#ffd333] hover:border-transparent hover:text-black font-semibold  duration-200 ease-in-out transition-all">
                 Login
               </button>
             </div>
