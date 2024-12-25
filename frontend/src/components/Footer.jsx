@@ -21,8 +21,7 @@ const Footer = () => {
               {/* Social Media Links */}
               <div className="flex flex-col justify-center gap-6">
                 <p className="text-[#a7a8b4] text-sm sm:text-base">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Assumenda, voluptatibus?
+                  RK Insurance one of India's favourite places to buy insurance
                 </p>
                 <div className="flex space-x-1.5">
                   <a href="# facebook">
