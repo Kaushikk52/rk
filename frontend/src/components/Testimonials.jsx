@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/pagination';
 import { PiQuotesFill } from "react-icons/pi";
 
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Keyboard } from 'swiper/modules';
 
 const Testimonials = () => {
 
@@ -28,7 +28,7 @@ const Testimonials = () => {
                 <div className='max-w-7xl container mx-auto my-10 px-4'>
                     <Swiper
                         className="h-[320px] md:h-[360px]"
-                        modules={[Pagination, Autoplay]}
+                        modules={[Pagination, Keyboard, Autoplay]}
                         slidesPerView={3}
                         slidesPerGroup={1}
                         grabCursor={true}
@@ -77,8 +77,8 @@ const Testimonials = () => {
                                     }}
                                     className='group grid grid-rows-3 p-4 h-full w-full rounded-sm custom-box-shadow bg-white hover:bg-blue-500 hover:text-white transition-all duration-200 ease-in-out'>
                                     <div className='row-span-1 content-center'>
-                                        <h1 className='text-xl font-semibold text-center'>{tes.name}</h1>
-                                        <PiQuotesFill className='h-6 w-6 mx-auto mt-2' />
+                                        <h1 className='text-xl text-[#253858] group-hover:text-white font-semibold text-center'>{tes.name}</h1>
+                                        <PiQuotesFill className='h-6 w-6 mx-auto mt-2 text-[#253858] group-hover:text-white' />
                                     </div>
                                     <div className='row-span-2 content-start'>
                                         <p className='text-center text-[#253858] group-hover:text-white'>{tes.message}</p>

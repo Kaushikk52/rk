@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <>
       <div className='flex items-center justify-between max-w-7xl container mx-auto px-4'>
-        <div className='md:flex flex-col pl-4 lg:w-6/12 hidden justify-start'>
+        <div className='md:flex flex-col pl-4 lg:w-6/12 xl:w-5/12 hidden justify-start'>
           <div className='text-4xl font-light text-[#253858] grid grid-rows-2 my-6'>
             <div className='mb-2'>
               <h1>Lets Find You</h1>

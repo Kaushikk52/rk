@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between  max-w-7xl container mx-auto">
         <div className="flex justify-start items-center">
           <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl my-2 mx-4 flex gap-2 items-start">
-            <span className="text-[#ffd333]">RK</span>
+            <span className="text-[#ffd700]">RK</span>
             <span className="text-black">Insurance</span>
           </h1>
         </div>
@@ -86,8 +86,8 @@ const Navbar = () => {
               to={item.link}
               className={({ isActive }) =>
                 isActive
-                  ? "md:text-base lg:text-lg font-semibold bg-[#ffd333] text-black py-1.5 px-6 md:py-1.5 md:px-4 lg:py-2 lg:px-6 cursor-pointer rounded transition-colors duration-300 ease-in-out"
-                  : "md:text-base lg:text-lg font-medium py-2 px-6 md:py-1.5 md:px-4 lg:py-2 lg:px-6 cursor-pointer hover:text-[#ffd333] duration-300 ease-in-out"
+                  ? "md:text-base lg:text-lg font-semibold bg-[#ffd700] text-black py-1.5 px-6 md:py-1.5 md:px-4 lg:py-2 lg:px-6 cursor-pointer rounded transition-colors duration-300 ease-in-out"
+                  : "md:text-base lg:text-lg font-medium py-2 px-6 md:py-1.5 md:px-4 lg:py-2 lg:px-6 cursor-pointer hover:text-[#ffd700] duration-300 ease-in-out"
               }
             >
               {item.name}
@@ -97,7 +97,7 @@ const Navbar = () => {
         </div>
             {/* Login button (hidden on mobile) */}
             <div className="items-end phone-none justify-end">
-              <button className="px-10 md:px-4 lg:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl md:text-base lg:text-xl border-2 text-[#ffd333] border-[#ffd333] rounded hover:bg-[#ffd333] hover:border-transparent hover:text-black font-semibold  duration-200 ease-in-out transition-all">
+              <button className="px-10 md:px-4 lg:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl md:text-base lg:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-black font-semibold  duration-200 ease-in-out transition-all">
                 Login
               </button>
             </div>
@@ -105,7 +105,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden my-4">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navitems.map((item) => (
               <NavLink
@@ -113,8 +113,8 @@ const Navbar = () => {
                 to={item.link}
                 className={({ isActive }) =>
                   isActive
-                    ? "block text-xl font-medium bg-[#ffd333] text-black py-2 px-3 rounded transition-colors duration-300 ease-in-out"
-                    : "block text-xl font-medium py-2 px-3 text-black hover:text-[#ffd333] duration-300 ease-in-out"
+                    ? "block text-lg font-semibold bg-[#ffd700] text-black py-2 px-3 rounded transition-colors duration-300 ease-in-out"
+                    : "block text-lg font-medium py-2 px-3 text-black hover:text-[#ffd700] duration-300 ease-in-out"
                 }
                 onClick={toggleMenu}
               >
@@ -122,9 +122,11 @@ const Navbar = () => {
               </NavLink>
             ))}
           </div>
-            <button className="w-full text-left px-3 py-2 text-xl font-medium text-[#ffd333] hover:bg-[#ffd333] hover:text-black rounded transition-colors duration-300 ease-in-out">
+          <div className="px-4">
+            <button className="w-full text-center uppercase py-2 text-base tracking-wide font-semibold border-2 border-[#ffd700] text-[#ffd700] hover:bg-[#ffd700] hover:text-black rounded transition-colors duration-300 ease-in-out">
               Login
             </button>
+          </div>
         </div>
       )}
     </nav>

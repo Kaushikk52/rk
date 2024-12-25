@@ -150,12 +150,13 @@ const Footer = () => {
           <hr />
 
           <div className="max-w-7xl container mx-auto py-6">
-            <div className="flex space-x-1 text-[#a7a8b4] justify-center sm:justify-start">
-              <p>©</p>
+            <div className="flex space-x-1 text-[#a7a8b4] justify-center text-center sm:justify-start">
+              <div className="flex flex-col sm:flex-row sm:gap-2">
               <p className="text-cyan-500 hover:text-white transition-all cursor-pointer">
-                RK Insurance Services 
+              © RK Insurance Services,
               </p>
-              <p>, All Rights Reserved.</p>
+              <p>All Rights Reserved.</p>
+              </div>
             </div>
           </div>
         </div>
