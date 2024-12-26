@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Bounce } from 'react-awesome-reveal';
+import { Zoom } from 'react-awesome-reveal';
 
 const WhyUs = () => {
   const [mobileView, setMobileView] = useState(false);
@@ -68,7 +68,7 @@ const WhyUs = () => {
 
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-10 my-10'>
           {information.map((info) => (
-            <Bounce triggerOnce delay={info.delay} duration={2000}>
+            <Zoom triggerOnce delay={info.delay} duration={1000}>
             <div
               key={info.id}
               style={{
@@ -94,7 +94,7 @@ const WhyUs = () => {
                 <p className='text-gray-600 py-2'>{info.text}</p>
               </div>
             </div>
-          </Bounce>
+          </Zoom>
           ))}
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/pagination';
 import { PiQuotesFill } from "react-icons/pi";
@@ -6,7 +6,7 @@ import { PiQuotesFill } from "react-icons/pi";
 import { Pagination, Autoplay, Keyboard } from 'swiper/modules';
 
 const Testimonials = () => {
-
+    const [centerIndex, setCenterIndex] = useState(0)
     const testimonials = [
         { id: 1, name: 'Sonia Khanna', message: 'Got good deal without agent calling or speaking to anyone!!' },
         { id: 2, name: 'Ananth Narayan', message: 'Thank you for facilitating and following up on the policy. Its been a very pleasurable experience with you folks at RK Insurance.' },
@@ -27,14 +27,12 @@ const Testimonials = () => {
                 </div>
                 <div className='max-w-7xl container mx-auto my-10 px-4'>
                     <Swiper
-                        className="h-[320px] md:h-[360px]"
                         modules={[Pagination, Keyboard, Autoplay]}
                         slidesPerView={3}
                         slidesPerGroup={1}
+                       
                         grabCursor={true}
                         centeredSlides={false}
-                        speed={700}
-                        loop={true}
                         breakpoints={{
                             0: {
                                 slidesPerView: 1,
@@ -49,24 +47,25 @@ const Testimonials = () => {
                             1024: {
                                 slidesPerView: 3,
                                 slidesPerGroup: 1,
-                                spaceBetween: 20,
+                                spaceBetween: 10,
                             },
-                         
+                            1440: {
+                                slidesPerView: 3,
+                                slidesPerGroup: 1,
+                                spaceBetween: 30,
+                            },
+
                         }}
-                        autoplay={{
-                            delay: 3000,
-                            pauseOnMouseEnter: false,
-                        }}
-                        spaceBetween={30}
-                        keyboard={{
-                            enabled: true,
-                        }}
-                        pagination={{
-                            clickable: true,
-                        }}
+                        autoplay={{ delay: 3000, pauseOnMouseEnter: false, }}
+                        speed={700}
+                        loop={true}
+                        keyboard={{ enabled: true, }}
+                        pagination={{ clickable: true, }}
+                        onSlideChange={(swiper) => setCenterIndex((swiper.realIndex + 1) % testimonials.length)}
+                        className="h-[320px] md:h-[360px] lg:h-[320px] xl:h-[360px]"
                     >
 
-                        {testimonials.map((tes) => (
+                        {testimonials.map((tes, index) => (
                             <SwiperSlide
                                 key={tes.id}
                                 className='h-full w-full pb-14 px-2 pt-2'
@@ -75,13 +74,17 @@ const Testimonials = () => {
                                     style={{
 
                                     }}
-                                    className='group grid grid-rows-3 p-4 h-full w-full rounded-sm custom-box-shadow bg-white hover:bg-blue-500 hover:text-white transition-all duration-200 ease-in-out'>
+                                    className={`1group grid grid-rows-3 p-4 h-full w-full rounded-sm custom-box-shadow bg-white text-[#253858] transition-all duration-300 ease-in-out
+                                    ${index === centerIndex
+                                            ? 'lg:bg-blue-500 lg:text-white'
+                                            : 'bg-white text-[#253858]'
+                                        }`}>
                                     <div className='row-span-1 content-center'>
-                                        <h1 className='text-xl text-[#253858] group-hover:text-white font-semibold text-center'>{tes.name}</h1>
-                                        <PiQuotesFill className='h-6 w-6 mx-auto mt-2 text-[#253858] group-hover:text-white' />
+                                        <h1 className='text-xl lg:text-lg xl:text-2xl font-semibold text-center'>{tes.name}</h1>
+                                        <PiQuotesFill className='h-6 w-6 mx-auto mt-2' />
                                     </div>
                                     <div className='row-span-2 content-start'>
-                                        <p className='text-center text-[#253858] group-hover:text-white'>{tes.message}</p>
+                                        <p className='text-sm sm:text-base lg:text-sm xl:text-base text-center'>{tes.message}</p>
                                     </div>
                                 </div>
                             </SwiperSlide>
