@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Bounce } from 'react-awesome-reveal';
 
 const WhyUs = () => {
   const [mobileView, setMobileView] = useState(false);
@@ -34,10 +35,10 @@ const WhyUs = () => {
 
 
   const information = [
-    { id: 1, title: 'Over 9 million', text: 'customers trust us & have bought their insurance on Policybazaar', emoji: '🎉', color: '#2d3cd9' },
-    { id: 2, title: '50 insurers', text: 'partnered with us so that you can compare easily & transparently', emoji: '🔍', color: '#0bbdf2', transform: '25%' },
-    { id: 3, title: 'Great Price', text: 'for all kinds of insurance plans available online', emoji: '🤩', color: '#47d990' },
-    { id: 4, title: 'Claims', text: 'support built in with every policy for help, when you need it the most', emoji: '👩🏻‍🦰', color: '#ffc400', transform: '25%' },
+    { id: 1, delay: 100, title: 'Over 9 million', text: 'customers trust us & have bought their insurance on Policybazaar', emoji: '🎉', color: '#2d3cd9' },
+    { id: 2, delay: 300, title: '50 insurers', text: 'partnered with us so that you can compare easily & transparently', emoji: '🔍', color: '#0bbdf2', transform: '25%' },
+    { id: 3, delay: 500, title: 'Great Price', text: 'for all kinds of insurance plans available online', emoji: '🤩', color: '#47d990' },
+    { id: 4, delay: 700, title: 'Claims', text: 'support built in with every policy for help, when you need it the most', emoji: '👩🏻‍🦰', color: '#ffc400', transform: '25%' },
   ];
 
   return (
@@ -45,7 +46,7 @@ const WhyUs = () => {
       <div className='flex flex-col justify-center lg:flex-row lg:justify-between items-center'>
         <div className='text-4xl lg:text-3xl xl:text-4xl lg:w-11/12 xl:w-5/6 text-left lg:text-left md:text-center'>
 
-          <div className='hidden lg:block text-[#253858] font-light'>
+          <div className='hidden lg:flex lg:flex-col lg:space-y-4 text-[#253858] font-light'>
             <p>What makes</p>
             <p><strong style={{ fontSize: 42, }}     className='font-bold'>RK Insurance</strong> one of</p>
             <p><strong style={{ fontSize: 42, }}     className='font-bold'>India's favourite places</strong></p>
@@ -67,6 +68,7 @@ const WhyUs = () => {
 
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-10 my-10'>
           {information.map((info) => (
+            <Bounce triggerOnce delay={info.delay} duration={2000}>
             <div
               key={info.id}
               style={{
@@ -92,6 +94,7 @@ const WhyUs = () => {
                 <p className='text-gray-600 py-2'>{info.text}</p>
               </div>
             </div>
+          </Bounce>
           ))}
         </div>
       </div>
