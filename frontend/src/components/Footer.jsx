@@ -1,15 +1,12 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import { FaTwitter } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
-import { IoIosCall } from "react-icons/io";
-import { MdEmail } from "react-icons/md";
-import { FaChevronRight } from "react-icons/fa";
+
+import { NavLink } from "react-router-dom";
 
 import { Fade } from "react-awesome-reveal";
+
+import { FaTwitter, FaFacebookF, FaYoutube, FaLinkedinIn, FaChevronRight } from "react-icons/fa";
+import { FaLocationDot, FaEnvelope, FaPhone   } from "react-icons/fa6";
+
 
 const Footer = () => {
 
@@ -27,6 +24,7 @@ const Footer = () => {
         <div className="w-full px-6 bg-[#15233c] text-white poppins-regular">
           <div className="max-w-7xl container mx-auto px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 py-14">
+
               {/* Social Media Links */}
               <div className="flex flex-col justify-center gap-6">
                 <p className="text-[#a7a8b4] text-sm sm:text-base">
@@ -67,18 +65,18 @@ const Footer = () => {
                 </h1>
                 <div className="flex flex-col space-y-4 text-[#a7a8b4]">
                   <div className="flex items-start space-x-4">
-                    <FaLocationDot className="h-6 w-6" />
+                    <FaLocationDot className="h-6 w-6 lg:h-8 lg:w-8 xl:h-7 xl:w-7" />
                     <p className="text-sm sm:text-base">
                       D - 319, Shanti Shopping Center, Mira road East,
                       Thane - 401107
                     </p>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <IoIosCall className="h-6 w-6" />
+                  <div className="flex items-start space-x-2">
+                    <FaPhone  className="h-5 w-5" />
                     <p className="text-sm sm:text-base">+91 97029 58881/2</p>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <MdEmail className="h-6 w-6" />
+                    <FaEnvelope  className="h-5 w-5" />
                     <p className="text-sm sm:text-base">sales@msipl.co</p>
                   </div>
                 </div>
@@ -109,6 +107,7 @@ const Footer = () => {
                 </div>
 
               </div>
+
               <Fade triggerOnce delay={150}>
                 {/* Map Section */}
                 <div className="flex flex-col justify-start">
@@ -126,6 +125,7 @@ const Footer = () => {
                   />
                 </div>
               </Fade>
+
             </div>
           </div>
 

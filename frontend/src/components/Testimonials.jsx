@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
+
+import "swiper/css"
 import 'swiper/css/pagination';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay, Keyboard } from 'swiper/modules';
+
+import { Slide, Fade } from "react-awesome-reveal"
+
 import { PiQuotesFill } from "react-icons/pi";
 
-import { Pagination, Autoplay, Keyboard } from 'swiper/modules';
 
 const Testimonials = () => {
     const [centerIndex, setCenterIndex] = useState(0)
@@ -22,76 +28,78 @@ const Testimonials = () => {
     return (
         <>
             <div className='w-full bg-[#f2f7ff] py-8 my-16 px-4'>
-                <div className='text-center'>
-                    <h1 className='text-4xl font-semibold text-[#253858]'>What Customers Says About Us</h1>
-                </div>
+                <Fade triggerOnce>
+                    <Slide triggerOnce direction='up'>
+                        <div className='text-center'>
+                            <h1 className='text-4xl font-semibold text-[#253858]'>What Customers Says About Us</h1>
+                        </div>
+                    </Slide>
+                </Fade>
                 <div className='max-w-7xl container mx-auto my-10 px-4'>
-                    <Swiper
-                        modules={[Pagination, Keyboard, Autoplay]}
-                        slidesPerView={3}
-                        slidesPerGroup={1}
-                       
-                        grabCursor={true}
-                        centeredSlides={false}
-                        breakpoints={{
-                            0: {
-                                slidesPerView: 1,
-                                slidesPerGroup: 1,
-                                spaceBetween: 20,
-                            },
-                            768: {
-                                slidesPerView: 2,
-                                slidesPerGroup: 1,
-                                spaceBetween: 20,
-                            },
-                            1024: {
-                                slidesPerView: 3,
-                                slidesPerGroup: 1,
-                                spaceBetween: 10,
-                            },
-                            1440: {
-                                slidesPerView: 3,
-                                slidesPerGroup: 1,
-                                spaceBetween: 30,
-                            },
+                    <Fade triggerOnce>
+                        <Slide triggerOnce direction='up'>
+                            <Swiper
+                                slidesPerView={3}
+                                slidesPerGroup={1}
+                                grabCursor={true}
+                                modules={[Pagination, Keyboard, Autoplay]}
+                                keyboard={{ enabled: true, }}
+                                pagination={{ clickable: true, }}
+                                autoplay={{ delay: 3000, waitForTransition: true, pauseOnMouseEnter: false }}
+                                speed={700}
+                                loop={true}
+                                breakpoints={{
+                                    0: {
+                                        slidesPerView: 1,
+                                        slidesPerGroup: 1,
+                                        spaceBetween: 20,
+                                    },
+                                    768: {
+                                        slidesPerView: 2,
+                                        slidesPerGroup: 1,
+                                        spaceBetween: 20,
+                                    },
+                                    1024: {
+                                        slidesPerView: 3,
+                                        slidesPerGroup: 1,
+                                        spaceBetween: 10,
+                                    },
+                                    1440: {
+                                        slidesPerView: 3,
+                                        slidesPerGroup: 1,
+                                        spaceBetween: 30,
+                                    },
 
-                        }}
-                        autoplay={{ delay: 3000, pauseOnMouseEnter: false, }}
-                        speed={700}
-                        loop={true}
-                        keyboard={{ enabled: true, }}
-                        pagination={{ clickable: true, }}
-                        onSlideChange={(swiper) => setCenterIndex((swiper.realIndex + 1) % testimonials.length)}
-                        className="h-[320px] md:h-[360px] lg:h-[320px] xl:h-[360px]"
-                    >
-
-                        {testimonials.map((tes, index) => (
-                            <SwiperSlide
-                                key={tes.id}
-                                className='h-full w-full pb-14 px-2 pt-2'
+                                }}
+                                onSlideChange={(swiper) => setCenterIndex((swiper.realIndex + 1) % testimonials.length)}
+                                className="h-[320px] md:h-[360px] lg:h-[320px] xl:h-[360px]"
                             >
-                                <div
-                                    style={{
 
-                                    }}
-                                    className={`1group grid grid-rows-3 p-4 h-full w-full rounded-sm custom-box-shadow bg-white text-[#253858] transition-all duration-300 ease-in-out
-                                    ${index === centerIndex
-                                            ? 'lg:bg-blue-500 lg:text-white'
-                                            : 'bg-white text-[#253858]'
-                                        }`}>
-                                    <div className='row-span-1 content-center'>
-                                        <h1 className='text-xl lg:text-lg xl:text-2xl font-semibold text-center'>{tes.name}</h1>
-                                        <PiQuotesFill className='h-6 w-6 mx-auto mt-2' />
-                                    </div>
-                                    <div className='row-span-2 content-start'>
-                                        <p className='text-sm sm:text-base lg:text-sm xl:text-base text-center'>{tes.message}</p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                        ))}
+                                {testimonials.map((tes, index) => (
+                                    <SwiperSlide
+                                        key={tes.id}
+                                        className='h-full w-full pb-14 px-2 pt-2'
+                                    >
 
-                    </Swiper>
-
+                                        <div
+                                            className={`group grid grid-rows-3 p-4 h-full w-full rounded-sm custom-box-shadow bg-white text-[#253858] transition-all duration-300 ease-in-out
+                                        ${index === centerIndex
+                                                    ? 'lg:bg-blue-500 lg:text-white'
+                                                    : 'bg-white text-[#253858]'
+                                                }`}>
+                                            <div className='row-span-1 content-center'>
+                                                <h1 className='text-xl lg:text-lg xl:text-xl font-semibold text-center'>{tes.name}</h1>
+                                                <PiQuotesFill className='h-6 w-6 mx-auto mt-2' />
+                                            </div>
+                                            <div className='row-span-2 content-start'>
+                                                <p className='text-sm sm:text-base lg:text-sm xl:text-base text-center'>{tes.message}</p>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </Slide>
+                    </Fade>
                 </div>
             </div>
         </>

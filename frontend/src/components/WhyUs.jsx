@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Zoom } from 'react-awesome-reveal';
+import { Zoom, Slide, Fade } from 'react-awesome-reveal';
 
 const WhyUs = () => {
   const [mobileView, setMobileView] = useState(false);
@@ -46,55 +46,65 @@ const WhyUs = () => {
       <div className='flex flex-col justify-center lg:flex-row lg:justify-between items-center'>
         <div className='text-4xl lg:text-3xl xl:text-4xl lg:w-11/12 xl:w-5/6 text-left lg:text-left md:text-center'>
 
-          <div className='hidden lg:flex lg:flex-col lg:space-y-4 text-[#253858] font-light'>
-            <p>What makes</p>
-            <p><strong style={{ fontSize: 42, }}     className='font-bold'>RK Insurance</strong> one of</p>
-            <p><strong style={{ fontSize: 42, }}     className='font-bold'>India's favourite places</strong></p>
-            <p>to <strong style={{ fontSize: 42, }}  className='font-bold'>buy insurance ?</strong></p>
-          </div>
+          <Fade triggerOnce>
+            <Slide triggerOnce direction='left' duration={1500}>
+
+              <div className='hidden lg:flex lg:flex-col lg:space-y-2.5 text-[#253858] font-light'>
+                <p>What makes</p>
+                <p><strong style={{ fontSize: 42, }} className='font-bold'>RK Insurance</strong> one of</p>
+                <p><strong style={{ fontSize: 42, }} className='font-bold'>India's favourite places</strong></p>
+                <p>to <strong style={{ fontSize: 42, }} className='font-bold'>buy insurance ?</strong></p>
+              </div>
+            </Slide>
+          </Fade>
 
           <div className='lg:hidden text-center text-[#253858] font-light'>
-            <p>
-              What makes
-              <strong style={{ fontSize: 42, }}  className='font-bold'> RK Insurance </strong>
-              one of
-              <strong style={{ fontSize: 42, }}  className='font-bold'> India's favourite places </strong>
-              to
-              <strong style={{ fontSize: 42, }}  className='font-bold'> buy insurance ?</strong>
-              
-            </p>
+            <Fade triggerOnce>
+              <Slide triggerOnce direction='up' duration={1200}>
+                <p>
+                  What makes
+                  <strong style={{ fontSize: 42, }} className='font-bold'> RK Insurance </strong>
+                  one of
+                  <strong style={{ fontSize: 42, }} className='font-bold'> India's favourite places </strong>
+                  to
+                  <strong style={{ fontSize: 42, }} className='font-bold'> buy insurance ?</strong>
+                </p>
+              </Slide>
+            </Fade>
           </div>
         </div>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-10 my-10'>
           {information.map((info) => (
-            <Zoom triggerOnce delay={info.delay} duration={1000}>
-            <div
+            <Zoom
               key={info.id}
+              triggerOnce
+              delay={info.delay}
+              duration={1000}
               style={{
                 transform: info.transform && mobileView ? 'none' : `translateY(${info.transform})`,
                 borderColor: info.color,
                 color: info.color,
                 boxShadow: `0px 6px 10px rgba(${hexToRgb(info.color)}, 0.3)`,
-                
 
               }}
               className={`flex flex-col space-y-2 bg-white border-l-2 py-4 px-6 rounded-e-2xl shadow-md md:shadow-lg `}
             >
               <div>
-                {/* Add the class rotate-item to the emoji */}
-                <p className='text-3xl content-end'>
-                  {info.emoji}
-                </p>
+                <div>
+                  {/* Add the class rotate-item to the emoji */}
+                  <p className='text-3xl content-end mb-1'>
+                    {info.emoji}
+                  </p>
+                </div>
+                <div className='content-start'>
+                  <p className='text-3xl font-semibold drop-shadow-sm'>{info.title}</p>
+                </div>
+                <div className='content-start'>
+                  <p className='text-gray-600 py-2'>{info.text}</p>
+                </div>
               </div>
-              <div className='content-start'>
-                <p className='text-3xl font-semibold drop-shadow-sm'>{info.title}</p>
-              </div>
-              <div className='content-start'>
-                <p className='text-gray-600 py-2'>{info.text}</p>
-              </div>
-            </div>
-          </Zoom>
+            </Zoom>
           ))}
         </div>
       </div>
