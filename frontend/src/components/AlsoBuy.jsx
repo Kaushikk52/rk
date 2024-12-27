@@ -1,4 +1,5 @@
 import React from 'react'
+import { Slide, Fade } from 'react-awesome-reveal'
 
 const AlsoBuy = () => {
     const data = [
@@ -18,20 +19,28 @@ const AlsoBuy = () => {
     return (
         <>
             <div className='max-w-7xl container mx-auto px-4'>
+                    <Fade triggerOnce>
                 <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                     {data.map((item) => (
-                        <div
-                        style={{ borderColor: `${item.color}` }}
+                        <Slide
+                            style={{ borderColor: `${item.color}` }}
                             key={item.id}
-                            className='flex flex-col justify-center border-2 bg-white rounded-lg shadow-sm md:shadow-md px-4 py-1.5'>
-                            <p
-                                style={{ color: `${item.color}` }}
-                                className='md:text-xs font-semibold text-xs'>● {item.category}
-                            </p>
-                            <h1 className='md:text-lg lg:text-base font-semibold text-[#253858]'>{item.text}</h1>
-                        </div>
+                            triggerOnce
+                            duration={1000}
+                            direction='up'
+                            className='flex flex-col justify-center border-2 bg-white rounded-lg shadow-sm md:shadow-md px-4 py-1.5'
+                        >
+                            <div>
+                                <p
+                                    style={{ color: `${item.color}` }}
+                                    className='md:text-xs font-semibold text-xs'>● {item.category}
+                                </p>
+                                <h1 className='md:text-lg lg:text-base font-semibold text-[#253858]'>{item.text}</h1>
+                            </div>
+                        </Slide>
                     ))}
                 </div>
+                        </Fade>
             </div>
         </>
     )

@@ -1,22 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { FaTwitter } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
-import { IoIosCall } from "react-icons/io";
-import { MdEmail } from "react-icons/md";
-import { FaChevronRight } from "react-icons/fa";
+
+import { NavLink } from "react-router-dom";
+
 import { Fade } from "react-awesome-reveal";
 
+import { FaTwitter, FaFacebookF, FaYoutube, FaLinkedinIn, FaChevronRight } from "react-icons/fa";
+import { FaLocationDot, FaEnvelope, FaPhone   } from "react-icons/fa6";
+
+
 const Footer = () => {
+
+  const navigationLinks = [
+    { goto: '/', linkText: 'Home', },
+    { goto: '/about-us', linkText: 'About us', },
+    { goto: '/contact-us', linkText: 'Contact us', },
+    { goto: '/services', linkText: 'Services', },
+    { goto: '/conditions', linkText: 'Terms & Conditions', },
+  ]
+
   return (
     <>
       <Fade triggerOnce>
         <div className="w-full px-6 bg-[#15233c] text-white poppins-regular">
           <div className="max-w-7xl container mx-auto px-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 py-14">
+
               {/* Social Media Links */}
               <div className="flex flex-col justify-center gap-6">
                 <p className="text-[#a7a8b4] text-sm sm:text-base">
@@ -24,25 +32,25 @@ const Footer = () => {
                 </p>
                 <div className="flex space-x-1.5">
                   <a href="# facebook">
-                    <button className="border border-gray-400 hover:border-white p-3 rounded-xl text-gray-400 hover:text-cyan-400 hover:-translate-y-1.5 duration-200 ease-in-out transition-all">
+                    <button className="border border-gray-400 hover:border-[#ffd700] p-3 rounded text-gray-400 hover:text-[#ffd700] hover:-translate-y-1.5 duration-200 ease-in-out transition-all">
                       <FaFacebookF className="h-4 w-4" />
                     </button>
                   </a>
 
                   <a href="# twitter">
-                    <button className="border border-gray-400 hover:border-white p-3 rounded-xl text-gray-400 hover:text-cyan-400 hover:-translate-y-1.5 duration-200 ease-in-out transition-all">
+                    <button className="border border-gray-400 hover:border-[#ffd700] p-3 rounded text-gray-400 hover:text-[#ffd700] hover:-translate-y-1.5 duration-200 ease-in-out transition-all">
                       <FaTwitter className="h-4 w-4" />
                     </button>
                   </a>
 
                   <a href="# youtube">
-                    <button className="border border-gray-400 hover:border-white p-3 rounded-xl text-gray-400 hover:text-cyan-400 hover:-translate-y-1.5 duration-200 ease-in-out transition-all">
+                    <button className="border border-gray-400 hover:border-[#ffd700] p-3 rounded text-gray-400 hover:text-[#ffd700] hover:-translate-y-1.5 duration-200 ease-in-out transition-all">
                       <FaYoutube className="h-4 w-4" />
                     </button>
                   </a>
 
                   <a href="# linked in">
-                    <button className="border border-gray-400 hover:border-white p-3 rounded-xl text-gray-400 hover:text-cyan-400 hover:-translate-y-1.5 duration-200 ease-in-out transition-all">
+                    <button className="border border-gray-400 hover:border-[#ffd700] p-3 rounded text-gray-400 hover:text-[#ffd700] hover:-translate-y-1.5 duration-200 ease-in-out transition-all">
                       <FaLinkedinIn className="h-4 w-4" />
                     </button>
                   </a>
@@ -56,18 +64,18 @@ const Footer = () => {
                 </h1>
                 <div className="flex flex-col space-y-4 text-[#a7a8b4]">
                   <div className="flex items-start space-x-4">
-                    <FaLocationDot className="h-6 w-6" />
+                    <FaLocationDot className="h-6 w-6 lg:h-8 lg:w-8 xl:h-7 xl:w-7" />
                     <p className="text-sm sm:text-base">
                       D - 319, Shanti Shopping Center, Mira road East,
                       Thane - 401107
                     </p>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <IoIosCall className="h-6 w-6" />
+                  <div className="flex items-start space-x-2">
+                    <FaPhone  className="h-5 w-5" />
                     <p className="text-sm sm:text-base">+91 97029 58881/2</p>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <MdEmail className="h-6 w-6" />
+                    <FaEnvelope  className="h-5 w-5" />
                     <p className="text-sm sm:text-base">sales@msipl.co</p>
                   </div>
                 </div>
@@ -78,53 +86,27 @@ const Footer = () => {
                 <h1 className="font-semibold text-xl py-4 text-left  sm:text-left">
                   Quick Links
                 </h1>
+
                 <div className="flex flex-col list-none">
-                  <Link to="/">
-                    <li className="flex items-center gap-3 py-1 group text-[#a7a8b4]">
-                      <FaChevronRight />
-                      <p className="group-hover:text-lg group-hover:text-white transition-all duration-200 ease-in-out">
-                        Home
-                      </p>
-                    </li>
-                  </Link>
+                  {navigationLinks.map((link, index) => (
 
-                  <Link to="/services">
-                    <li className="flex items-center gap-3 py-1 group text-[#a7a8b4]">
+                  <NavLink
+                    key={index}
+                    to={link.goto}
+                    className={({ isActive }) =>
+                      isActive ? "text-[#ffd700] text-lg" : "text-[#a7a8b4] group"
+                    }
+                  >
+                    <li className="flex items-center gap-3 py-1 group-hover:text-lg group-hover:text-[#ffd700] transition-all duration-200 ease-in-out">
                       <FaChevronRight />
-                      <p className="group-hover:text-lg group-hover:text-white transition-all duration-200 ease-in-out">
-                        Services
-                      </p>
+                      <p>{link.linkText}</p>
                     </li>
-                  </Link>
-
-                  <Link to="/about-us">
-                    <li className="flex items-center gap-3 py-1 group text-[#a7a8b4]">
-                      <FaChevronRight />
-                      <p className="group-hover:text-lg group-hover:text-white transition-all duration-200 ease-in-out">
-                        About Us
-                      </p>
-                    </li>
-                  </Link>
-
-                  <Link to="/contact-us">
-                    <li className="flex items-center gap-3 py-1 group text-[#a7a8b4]">
-                      <FaChevronRight />
-                      <p className="group-hover:text-lg group-hover:text-white transition-all duration-200 ease-in-out">
-                        Contact Us
-                      </p>
-                    </li>
-                  </Link>
-
-                  <Link to="/conditions">
-                    <li className="flex items-center gap-3 py-1 group text-[#a7a8b4]">
-                      <FaChevronRight />
-                      <p className="group-hover:text-lg group-hover:text-white transition-all duration-200 ease-in-out">
-                        Terms & Conditions
-                      </p>
-                    </li>
-                  </Link>
+                  </NavLink>
+                  ))}
                 </div>
+
               </div>
+
               <Fade triggerOnce delay={150}>
                 {/* Map Section */}
                 <div className="flex flex-col justify-start">
@@ -142,18 +124,24 @@ const Footer = () => {
                   />
                 </div>
               </Fade>
+
             </div>
           </div>
 
           <hr />
 
           <div className="max-w-7xl container mx-auto py-6">
-            <div className="flex space-x-1 text-[#a7a8b4] justify-center sm:justify-start">
-              <p>©</p>
-              <p className="text-cyan-500 hover:text-white transition-all cursor-pointer">
-                RK Insurance Services 
-              </p>
-              <p>, All Rights Reserved.</p>
+            <div className="flex space-x-1 text-[#a7a8b4] justify-center text-center sm:justify-start">
+              <div className="flex flex-col sm:flex-row sm:gap-2">
+                <NavLink
+                to='/'
+                >
+                <p className="text-[#ffd700] cursor-pointer">
+                  © RK Insurance Services,
+                </p>
+                </NavLink>
+                <p>All Rights Reserved.</p>
+              </div>
             </div>
           </div>
         </div>
