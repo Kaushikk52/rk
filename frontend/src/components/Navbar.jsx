@@ -96,7 +96,7 @@ const Navbar = () => {
 
         </div>
             {/* Login button (hidden on mobile) */}
-            <div className="items-end phone-none justify-end">
+            <div className="hidden md:flex items-end justify-end">
               <button className="px-10 md:px-4 lg:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl md:text-base lg:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-black font-semibold  duration-200 ease-in-out transition-all">
                 Login
               </button>

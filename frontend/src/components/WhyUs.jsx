@@ -35,7 +35,7 @@ const WhyUs = () => {
 
 
   const information = [
-    { id: 1, delay: 100, title: 'Over 9 million', text: 'customers trust us & have bought their insurance on Policybazaar', emoji: '🎉', color: '#2d3cd9' },
+    { id: 1, delay: 100, title: 'Over 9 million', text: 'customers trust us & have bought their insurance on RK Insurance', emoji: '🎉', color: '#2d3cd9' },
     { id: 2, delay: 300, title: '50 insurers', text: 'partnered with us so that you can compare easily & transparently', emoji: '🔍', color: '#0bbdf2', transform: '25%' },
     { id: 3, delay: 500, title: 'Great Price', text: 'for all kinds of insurance plans available online', emoji: '🤩', color: '#47d990' },
     { id: 4, delay: 700, title: 'Claims', text: 'support built in with every policy for help, when you need it the most', emoji: '👩🏻‍🦰', color: '#ffc400', transform: '25%' },
