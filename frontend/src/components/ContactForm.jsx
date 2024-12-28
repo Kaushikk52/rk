@@ -13,7 +13,7 @@ export const ContactForm = () => {
             <div className="max-w-7xl container mx-auto px-4 py-8">
                 <h1 className="text-4xl font-bold mb-8 text-center">Contact Us</h1>
                 <div className="grid lg:grid-cols-2 gap-8">
-                    {/* Company Information */}
+                  
                     <div className="bg-white p-6 rounded-lg shadow-md">
                         <h2 className="text-2xl font-semibold mb-4">Company Information</h2>
                         <div className="space-y-4">
@@ -31,7 +31,7 @@ export const ContactForm = () => {
                             </p>
                         </div>
 
-                        {/* Map */}
+                        
                         <div className="mt-6">
                             <h3 className="text-xl font-semibold mb-2">Our Location</h3>
                             <div className="h-96 bg-gray-300 rounded-lg overflow-hidden">
@@ -40,7 +40,7 @@ export const ContactForm = () => {
                         </div>
                     </div>
 
-                    {/* Contact Form */}
+                  
                     <div className="bg-white p-6 rounded-lg shadow-md">
                         <h2 className="text-2xl font-semibold mb-4">Send Us a Message</h2>
                         <form className="space-y-4">

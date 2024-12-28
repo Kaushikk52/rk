@@ -16,11 +16,11 @@ const AdvantageCards = () => {
     const isLargeScreen = useMediaQuery('(min-width: 1024px)');
 
     const advantages = [
-        { id: 1, zeroTosm: 'left', md: 'right', lg: 'left', delay: 100, image: Bestprice, title: 'Best Prices', text: 'Guaranteed' },
-        { id: 2, zeroTosm: 'right', md: 'left', lg: 'left', delay: 300, image: Chat, title: 'Unbiased Advice', text: 'Keeping customers first' },
-        { id: 3, zeroTosm: 'left', md: 'right', lg: 'left', delay: 500, image: Insignia, title: '100% Reliable', text: 'Regulated by IRDAI' },
-        { id: 4, zeroTosm: 'right', md: 'right', lg: 'left', delay: 700, image: Support, title: 'Claim Support', text: 'Made stress-free' },
-        { id: 5, zeroTosm: 'left', md: 'left', lg: 'left', delay: 900, image: Student, title: 'Happy to help', text: 'Every day of the week' },
+        { id: 1, zeroTosm: 'left', md: 'right', lg: 'up', delay: 100, image: Bestprice, title: 'Best Prices', text: 'Guaranteed' },
+        { id: 2, zeroTosm: 'right', md: 'left', lg: 'up', delay: 300, image: Chat, title: 'Unbiased Advice', text: 'Keeping customers first' },
+        { id: 3, zeroTosm: 'left', md: 'right', lg: 'up', delay: 500, image: Insignia, title: '100% Reliable', text: 'Regulated by IRDAI' },
+        { id: 4, zeroTosm: 'right', md: 'left', lg: 'up', delay: 700, image: Support, title: 'Claim Support', text: 'Made stress-free' },
+        { id: 5, zeroTosm: 'left', md: 'right', lg: 'up', delay: 900, image: Student, title: 'Happy to help', text: 'Every day of the week' },
     ];
 
     return (
@@ -35,7 +35,7 @@ const AdvantageCards = () => {
                     </div>
                 </Slide>
             </Fade>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 my-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-2 my-10">
                 {advantages.map((advantage) => {
                     // Determine the animation direction based on screen size
                     let direction = 'left';
@@ -46,7 +46,7 @@ const AdvantageCards = () => {
                     return (
                         <Fade triggerOnce>
                             <Slide key={advantage.id} triggerOnce direction={direction} delay={advantage.delay}>
-                                <div className="group grid grid-rows-2 bg-white border rounded-sm py-10 px-2 hover:scale-110 hover:shadow-2xl hover:border-white transition-all duration-75 ease-in-out">
+                                {/* <div className="group grid grid-rows-2 bg-white border rounded-sm py-10 px-2 hover:scale-110 hover:shadow-2xl hover:border-white transition-all duration-75 ease-in-out">
                                     <div className="row-span-1 content-end mx-auto">
                                         <img
                                             src={advantage.image}
@@ -61,6 +61,20 @@ const AdvantageCards = () => {
                                         <p className="lg:text-sm font-medium text-gray-500 group-hover:font-semibold group-hover:text-sm text-nowrap">
                                             {advantage.text}
                                         </p>
+                                    </div>
+                                </div> */}
+
+                                <div className='flex items-center border px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300'>
+                                    <div className='flex-shrink-0'>
+                                        <img
+                                            src={advantage.image}
+                                            alt={advantage.title}
+                                            className='h-16 w-16'
+                                        />
+                                    </div>
+                                    <div className='ml-4'>
+                                        <h2 className='text-xl font-semibold text-[#253858]'>{advantage.title}</h2>
+                                        <p className='text-gray-600'>{advantage.text}</p>
                                     </div>
                                 </div>
                             </Slide>
