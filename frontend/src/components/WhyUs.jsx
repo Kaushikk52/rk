@@ -149,9 +149,9 @@ const WhyUs = () => {
     { id: 4, delay: 700, direction: 'up', title: 'Claims', text: 'support built in with every policy for help, when you need it the most', transform: '20%' },
   ];
   return (
-    <div className='max-w-7xl container mx-auto px-4'>
+    <div className='max-w-7xl container mx-auto my-16 px-4'>
       <Slide triggerOnce direction='up'>
-        <div className='md:max-w-xl mx-auto text-center py-4'>
+        <div className='md:max-w-xl mx-auto text-left min-[425px]:text-center py-4'>
           <h1 className='text-3xl md:text-4xl font-semibold text-[#253858]'>Why choose RK Insurance for all your insurance needs?</h1>
         </div>
       </Slide>

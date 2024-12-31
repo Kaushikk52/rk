@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 
 import "swiper/css"
 import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
+
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Keyboard } from 'swiper/modules';
+import { Pagination, Autoplay, Keyboard, EffectCoverflow } from 'swiper/modules';
 
 import { Slide, Fade } from "react-awesome-reveal"
 
@@ -30,7 +32,7 @@ const Testimonials = () => {
             <div className='w-full bg-[#f2f7ff] py-8 my-16 px-4'>
                 <Fade triggerOnce>
                     <Slide triggerOnce direction='up'>
-                        <div className='text-center'>
+                        <div className='text-left min-[375px]:text-center'>
                             <h1 className='text-4xl font-semibold text-[#253858]'>What Customers Says About Us</h1>
                         </div>
                     </Slide>
@@ -39,14 +41,23 @@ const Testimonials = () => {
                     <Fade triggerOnce>
                         <Slide triggerOnce direction='up'>
                             <Swiper
-                                slidesPerView={3}
+                                slidesPerView={'auto'}
                                 slidesPerGroup={1}
                                 grabCursor={true}
-                                modules={[Pagination, Keyboard, Autoplay]}
+                                effect={'coverflow'}
+                                coverflowEffect={{
+                                    rotate: 50,
+                                    stretch: 0,
+                                    depth: 100,
+                                    modifier: 1,
+                                    slideShadows: false,
+                                  }}
+                                centeredSlides={true}
+                                modules={[Pagination, Keyboard, Autoplay, EffectCoverflow]}
                                 keyboard={{ enabled: true, }}
                                 pagination={{ clickable: true, }}
                                 autoplay={{ delay: 3000, waitForTransition: true, pauseOnMouseEnter: false }}
-                                speed={700}
+                                speed={500}
                                 loop={true}
                                 breakpoints={{
                                     0: {
@@ -71,7 +82,7 @@ const Testimonials = () => {
                                     },
 
                                 }}
-                                onSlideChange={(swiper) => setCenterIndex((swiper.realIndex + 1) % testimonials.length)}
+                                onSlideChange={(swiper) => setCenterIndex((swiper.realIndex ) % testimonials.length)}
                                 className="h-[320px] md:h-[360px] lg:h-[320px] xl:h-[360px]"
                             >
 
@@ -84,12 +95,12 @@ const Testimonials = () => {
                                         <div
                                             className={`group grid grid-rows-3 p-4 h-full w-full rounded-sm custom-box-shadow bg-white text-[#253858] transition-all duration-300 ease-in-out
                                         ${index === centerIndex
-                                                    ? 'lg:bg-blue-500 lg:text-white'
+                                                    ? 'md:bg-yellow-300 md:text-black'
                                                     : 'bg-white text-[#253858]'
                                                 }`}>
                                             <div className='row-span-1 content-center'>
-                                                <h1 className='text-xl lg:text-lg xl:text-xl font-semibold text-center'>{tes.name}</h1>
-                                                <PiQuotesFill className='h-6 w-6 mx-auto mt-2' />
+                                                <h1 className='text-xl lg:text-lg xl:text-2xl font-semibold text-center'>{tes.name}</h1>
+                                                {/* <PiQuotesFill className='h-6 w-6 mx-auto mt-2' /> */}
                                             </div>
                                             <div className='row-span-2 content-start'>
                                                 <p className='text-sm sm:text-base lg:text-sm xl:text-base text-center'>{tes.message}</p>
