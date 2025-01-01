@@ -101,7 +101,11 @@ const Navbar = () => {
             </NavLink>
           ))}
           <button onClick={toggleDropdown} className={`relative `}>
+<<<<<<< HEAD
             <div className={`flex gap-1 px-2.5 items-center ${isDropdown ? 'text-indigo-500' : ''}`}>
+=======
+            <div className={`flex gap-1 px-2.5 items-center ${isDropdown ? 'text-yellow-400' : ''}`}>
+>>>>>>> d23f1cfd77eb0f92577fca7ed969961d5e59d97a
             <p className="font-medium text-lg">Generators</p>
             <ChevronDown className={`${isDropdown ? 'rotate-180' : 'rotate-0'} transition-all duration-200 ease-in-out`} />
             </div>
@@ -109,23 +113,39 @@ const Navbar = () => {
             {isDropdown &&
               <div className="absolute top-10 left-0 bg-white w-56 p-2 space-y-1 z-50 rounded">
                 <li className="">
+<<<<<<< HEAD
                   <NavLink to='/'
+=======
+                  <NavLink to='/offer-letter'
+>>>>>>> d23f1cfd77eb0f92577fca7ed969961d5e59d97a
                     className={({ isActive }) =>
                       isActive
                         ? "md:text-base lg:text-lg font-semibold block py-2 bg-[#ffd700] text-black transition-colors duration-300 ease-in-out"
                         : "md:text-base lg:text-lg font-medium block py-2 bg-gray-200 hover:bg-[#ffd700] duration-300 ease-in-out"
                     }>
+<<<<<<< HEAD
                     offer letter
                   </NavLink>
                 </li>
                 <li className="">
                   <NavLink to='/'
+=======
+                    Offer Letter
+                  </NavLink>
+                </li>
+                <li className="">
+                  <NavLink to='/letter-head'
+>>>>>>> d23f1cfd77eb0f92577fca7ed969961d5e59d97a
                     className={({ isActive }) =>
                       isActive
                         ? "md:text-base lg:text-lg font-semibold block py-2 bg-[#ffd700] text-black transition-colors duration-300 ease-in-out"
                         : "md:text-base lg:text-lg font-medium block py-2 bg-gray-200 hover:bg-[#ffd700] duration-300 ease-in-out"
                     }>
+<<<<<<< HEAD
                    letter head
+=======
+                   Letter Head
+>>>>>>> d23f1cfd77eb0f92577fca7ed969961d5e59d97a
                   </NavLink>
                 </li>
               </div>
@@ -139,6 +159,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden my-4">

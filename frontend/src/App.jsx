@@ -8,6 +8,8 @@ import Contact from "./pages/Contact";
 import Layout from "./components/Layouts/Layout";
 import Conditions from "./pages/Conditions";
 import InsuranceDetailsPage from "./pages/InsuranceDetailsPage";
+import Generator from "./pages/Offer-letter/Main"
+import LetterHead from "./pages/Letter-head/Main"
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/conditions" element={<Conditions />} />
           <Route path="/insurance-details/:title" element={<InsuranceDetailsPage />} />
+          <Route path="/offer-letter" element={<Generator />} />
+          <Route path="/letter-head" element={<LetterHead />} />
         </Route>
       </Routes>
     </BrowserRouter>
