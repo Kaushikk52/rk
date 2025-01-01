@@ -7,6 +7,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Layout from "./components/Layouts/Layout";
 import Conditions from "./pages/Conditions";
+import Generator from "./pages/Offer-letter/Main"
+import LetterHead from "./pages/Letter-head/Main"
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
           <Route path="/about-us" element={<About />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/conditions" element={<Conditions />} />
+          <Route path="/offer-letter" element={<Generator />} />
+          <Route path="/letter-head" element={<LetterHead />} />
         </Route>
       </Routes>
     </BrowserRouter>

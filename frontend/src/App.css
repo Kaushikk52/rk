@@ -7,6 +7,26 @@ body {
 }
 
 
+#letterhead-printable {
+  background: white;
+  color: black;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+#letterhead-printable p {
+  margin: 5px 0;
+}
+
+#letterhead-printable .ql-container,
+#letterhead-printable .ql-toolbar {
+  display: none;
+}
+
+
+
+
+
 @media screen and (max-width: 600px) {
   .phone-none {
     display: none;

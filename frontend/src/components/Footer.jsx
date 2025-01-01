@@ -66,17 +66,16 @@ const Footer = () => {
                   <div className="flex items-start space-x-4">
                     <FaLocationDot className="h-6 w-6 lg:h-8 lg:w-8 xl:h-7 xl:w-7" />
                     <p className="text-sm sm:text-base">
-                      D - 319, Shanti Shopping Center, Mira road East,
-                      Thane - 401107
+                    OFFICE NO. D-319, 2ND FLOOR, SHANTI SHOPPING CENTRE, OPP. MIRA ROAD RAILWAY STATION, MIRA ROAD (EAST),  THANE , Pin 401107
                     </p>
                   </div>
                   <div className="flex items-start space-x-2">
                     <FaPhone  className="h-5 w-5" />
-                    <p className="text-sm sm:text-base">+91 97029 58881/2</p>
+                    <p className="text-sm sm:text-base">+91 8850036648</p>
                   </div>
                   <div className="flex items-center space-x-3">
                     <FaEnvelope  className="h-5 w-5" />
-                    <p className="text-sm sm:text-base">sales@msipl.co</p>
+                    <p className="text-sm sm:text-base">hr@rkinsuranceservice.in</p>
                   </div>
                 </div>
               </div>
@@ -114,7 +113,7 @@ const Footer = () => {
                     Map
                   </h1>
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d80172.43907467806!2d72.9667817250566!3d19.145985576050737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x3be7bf58ffffffff%3A0x771ce664098bc6ad!2sManner%20%26%20Skill%20Integrated%20Services%20Pvt.%20Ltd.%2C%20R-243%2C%20MIDC%20Industrial%20Area%2C%20Rabale%2C%20Navi%20Mumbai%2C%20Maharashtra%20400701!3m2!1d19.1459091!2d73.00806709999999!5e1!3m2!1sen!2sin!4v1734085968018!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d2662.9978738381546!2d72.85625916425487!3d19.28029133906246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x3be7b10062bf42db%3A0xee8237109f6d6a63!2sD%20Wing%20Shanti%20Shopping%20Centre%2C%20Shanti%20Path%2C%20Shanti%20Vihar%2C%20Ghatkopar%20EastMumbai%2C%20Mira%20Bhayandar%2C%20Maharashtra!3m2!1d19.280352!2d72.8576156!5e0!3m2!1sen!2sin!4v1735304207808!5m2!1sen!2sin"
                     width="100%"
                     height="200"
                     style={{ border: 0 }}

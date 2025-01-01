@@ -23,7 +23,7 @@ export const ContactForm = () => {
                             </p>
                             <p className="flex items-start sm:items-center">
                                 <FaPhone className="h-5 w-5 mr-2 text-blue-500" />
-                                <span><strong>Phone </strong>- +91 1234567890</span>
+                                <span><strong>Phone </strong>- +91 8850036648</span>
                             </p>
                             <p className="flex items-start sm:items-center">
                                 <FaClock className="h-5 w-5 mr-2 text-blue-500" />

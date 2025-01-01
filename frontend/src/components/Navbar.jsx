@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdown, setIsDropdownOpen] = useState(false);
 
   const navitems = [
     {
@@ -25,10 +27,15 @@ const Navbar = () => {
       name: "Contact",
       link: "/contact-us",
     },
+
   ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdown)
   };
 
   return (
@@ -93,14 +100,46 @@ const Navbar = () => {
               {item.name}
             </NavLink>
           ))}
-        </div>
-            {/* Login button (hidden on mobile) */}
-            <div className="hidden md:flex items-end justify-end">
-              <button className="px-10 md:px-4 lg:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl md:text-base lg:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-black font-semibold  duration-200 ease-in-out transition-all">
-                Login
-              </button>
+          <button onClick={toggleDropdown} className={`relative `}>
+            <div className={`flex gap-1 px-2.5 items-center ${isDropdown ? 'text-yellow-400' : ''}`}>
+            <p className="font-medium text-lg">Generators</p>
+            <ChevronDown className={`${isDropdown ? 'rotate-180' : 'rotate-0'} transition-all duration-200 ease-in-out`} />
             </div>
+
+            {isDropdown &&
+              <div className="absolute top-10 left-0 bg-white w-56 p-2 space-y-1 z-50 rounded">
+                <li className="">
+                  <NavLink to='/offer-letter'
+                    className={({ isActive }) =>
+                      isActive
+                        ? "md:text-base lg:text-lg font-semibold block py-2 bg-[#ffd700] text-black transition-colors duration-300 ease-in-out"
+                        : "md:text-base lg:text-lg font-medium block py-2 bg-gray-200 hover:bg-[#ffd700] duration-300 ease-in-out"
+                    }>
+                    Offer Letter
+                  </NavLink>
+                </li>
+                <li className="">
+                  <NavLink to='/letter-head'
+                    className={({ isActive }) =>
+                      isActive
+                        ? "md:text-base lg:text-lg font-semibold block py-2 bg-[#ffd700] text-black transition-colors duration-300 ease-in-out"
+                        : "md:text-base lg:text-lg font-medium block py-2 bg-gray-200 hover:bg-[#ffd700] duration-300 ease-in-out"
+                    }>
+                   Letter Head
+                  </NavLink>
+                </li>
+              </div>
+            }
+          </button>
+        </div>
+        {/* Login button (hidden on mobile) */}
+        <div className="hidden md:flex items-end justify-end">
+          <button className="px-10 md:px-4 lg:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl md:text-base lg:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-black font-semibold  duration-200 ease-in-out transition-all">
+            Login
+          </button>
+        </div>
       </div>
+
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden my-4">
