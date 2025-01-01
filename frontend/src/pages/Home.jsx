@@ -89,7 +89,7 @@ const Home = () => {
       <section className="py-20 bg-[#f2f7ff] text-black">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Secure Your Future?</h2>
-          <p className="text-xl mb-8">Join thousands of satisfied customers who trust SecureShield for their insurance needs.</p>
+          <p className="text-xl mb-8">Join thousands of satisfied customers who trust RK Insurance for their insurance needs.</p>
           <Link
            to='#'
             className="py-3 px-8 rounded-full font-semibold bg-yellow-300 transition duration-300 inline-block"

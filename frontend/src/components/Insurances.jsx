@@ -64,10 +64,11 @@
 
 
 
-import React from 'react'
-import { Building2, Car, BikeIcon, Heart, Umbrella, Users, Search } from 'lucide-react'
+import React, { useState } from 'react'
+import { Building2, Car, BikeIcon, Heart, Umbrella, Users, Search, Route } from 'lucide-react'
 import { Fade, Slide } from 'react-awesome-reveal';
 import { Link } from 'react-router-dom'
+import MoreInsuranceModal from './MoreInsuranceModal';
 
 const Insurances = () => {
     const insurances = [
@@ -78,6 +79,13 @@ const Insurances = () => {
         { id: 5, delay: 600, category: 'life-insurance', icon: <Umbrella className='h-12 w-12 ' />, title: 'Life', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
         { id: 6, delay: 750, category: 'family-health-insurance', icon: <Users className='h-12 w-12 ' />, title: 'Family Health', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
     ];
+
+    const [ModalOpen, setModalOpen] = useState(false);
+
+    const handleShow = () => setModalOpen(true) 
+    const handleClose = () => setModalOpen(false)
+    
+
 
     return (
         <div className='max-w-7xl container mx-auto px-4 my-10'>
@@ -104,26 +112,29 @@ const Insurances = () => {
                                     to={`/insurance-details/${insurance.category}`}
                                 >
                                     <div className='flex flex-col items-center'>
-
-                                        <div className="absolute bottom-0 left-0 w-full h-full bg-blue-500 transform scale-y-0 origin-bottom transition-all duration-500 group-hover:scale-y-100 z-10"></div>
+                                        <div className="absolute bottom-0 left-0 w-full h-full bg-blue-500 transform scale-y-0 origin-bottom transition-all duration-300 group-hover:scale-y-100 z-10"></div>
                                         <div className="mb-2 text-blue-500 group-hover:text-white duration-300 transition-all ease-in-out z-20">{insurance.icon}</div>
                                         <p className="text-base font-semibold py-0.5 px-10 lg:px-7 xl:px-10 rounded bg-[#ffd700] z-20 ">{insurance.title}</p>
                                     </div>
                                 </Link>
-
                             </Fade>
                         </Slide>
                     ))}
                     <Slide triggerOnce direction='up' delay={900} className='relative col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2 row-span-4 shadow-md border p-4 flex flex-col items-center justify-center overflow-hidden group hover:shadow-lg'>
-                    <button className='flex flex-col items-center justify-center'>
-                        <div className="absolute bottom-0 left-0 w-full h-full bg-blue-500 transform scale-y-0 origin-bottom transition-all duration-500 group-hover:scale-y-100 z-10"></div>
-                        <div className="mb-2 text-blue-500 group-hover:text-white duration-300 transition-all ease-in-out z-20"> <Search className='h-12 w-12 ' /></div>
-                        <p className="text-base font-semibold py-0.5 px-10 lg:px-7 xl:px-10 rounded bg-[#ffd700] z-20 ">More</p>
-                    </button>
+                        <button onClick={handleShow} className='flex flex-col items-center justify-center'>
+                            <div className="absolute bottom-0 left-0 w-full h-full bg-blue-500 transform scale-y-0 origin-bottom transition-all duration-300 group-hover:scale-y-100 z-10"></div>
+                            <div className="mb-2 text-blue-500 group-hover:text-white duration-300 transition-all ease-in-out z-20"> <Search className='h-12 w-12 ' /></div>
+                            <p className="text-base font-semibold py-0.5 px-10 lg:px-7 xl:px-10 rounded bg-[#ffd700] z-20 ">More</p>
+                        </button>
                     </Slide>
+
+                   
+                    <MoreInsuranceModal handleClose={handleClose} handleShow={handleShow} ModalOpen={ModalOpen} />
+
                 </div>
             </div>
         </div>
+
     );
 };
 

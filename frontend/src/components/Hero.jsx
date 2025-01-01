@@ -20,7 +20,7 @@ const Hero = () => {
                                 </a>
                                 <a
                                     href="#"
-                                    className="group flex gap-2 border-2 border-indigo-600 py-3 px-8 rounded-full font-semibold text-indigo-600 hover:bg-indigo-500 hover:text-white hover:border-transparent transition duration-300 ease-in-out text-center"
+                                    className="group flex justify-center gap-2 border-2 border-indigo-600 py-3 px-8 rounded-full font-semibold text-indigo-600 hover:bg-indigo-500 hover:text-white hover:border-transparent transition duration-300 ease-in-out text-center"
                                 >
                                     Learn More <ArrowRight className='group-hover:-rotate-45 group-hover:text-white text-indigo-600 transition-all duration-200 ease-in-out' />
                                 </a>

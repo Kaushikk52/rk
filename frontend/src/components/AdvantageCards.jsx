@@ -30,9 +30,9 @@ const AdvantageCards = () => {
                     <Fade triggerOnce>
                         <Slide triggerOnce direction="left" duration={2000}>
                             <div className="text-left lg:text-left min-[425px]:text-center mx-auto">
-                                <h1 className="text-4xl lg:text-5xl font-semibold text-[#253858] py-5">RK Advantage</h1>
+                                <h1 className="text-4xl lg:text-5xl font-semibold text-[#253858] py-5">RK Advantages</h1>
                                 <p className="text-[#253858] font-medium text-lg">
-                                    When you buy insurance from us, you get more than just financial safety. You also get: our promise of simplifying complex insurance terms and conditions, quick stress-free claims, instant quotes from top insurers, and being present for you in the toughest of times.
+                                When you choose insurance with us, you're not just securing financial protection. You’re also gaining clarity with easy-to-understand policies, hassle-free claims, instant quotes from leading insurers, and unwavering support when you need it the most.
                                 </p>
                             </div>
                         </Slide>
