@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Layout from "./components/Layouts/Layout";
 import Conditions from "./pages/Conditions";
+import InsuranceDetailsPage from "./pages/InsuranceDetailsPage";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/about-us" element={<About />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/conditions" element={<Conditions />} />
+          <Route path="/insurance-details/:title" element={<InsuranceDetailsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

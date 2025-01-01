@@ -67,16 +67,16 @@
 import React from 'react'
 import { Building2, Car, BikeIcon, Heart, Umbrella, Users, Search } from 'lucide-react'
 import { Fade, Slide } from 'react-awesome-reveal';
+import { Link } from 'react-router-dom'
 
 const Insurances = () => {
     const insurances = [
-        { id: 1, delay: 0, icon: <Building2 className='h-12 w-12 sm:h-24 sm:w-24 ' />, title: 'Property', colSpan: 'col-span-10 sm:col-span-10 md:col-span-9 lg:col-span-3', rowSpan: 'row-span-8' },
-        { id: 2, delay: 150, icon: <Car className='h-12 w-12 ' />, title: 'Auto', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
-        { id: 3, delay: 300, icon: <BikeIcon className='h-12 w-12 ' />, title: 'Motorcycle', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
-        { id: 4, delay: 450, icon: <Heart className='h-12 w-12 ' />, title: 'Health', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
-        { id: 5, delay: 600, icon: <Umbrella className='h-12 w-12 ' />, title: 'Life', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
-        { id: 6, delay: 750, icon: <Users className='h-12 w-12 ' />, title: 'Family Health', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
-        { id: 7, delay: 900, icon: <Search className='h-12 w-12 ' />, title: 'More', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
+        { id: 1, delay: 0, category: 'property-insurance', icon: <Building2 className='h-12 w-12 sm:h-24 sm:w-24 ' />, title: 'Property', colSpan: 'col-span-10 sm:col-span-10 md:col-span-9 lg:col-span-3', rowSpan: 'row-span-8' },
+        { id: 2, delay: 150, category: 'auto-insurance', icon: <Car className='h-12 w-12 ' />, title: 'Auto', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
+        { id: 3, delay: 300, category: 'motor-cycle-insurance', icon: <BikeIcon className='h-12 w-12 ' />, title: 'Motorcycle', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
+        { id: 4, delay: 450, category: 'health-insurance', icon: <Heart className='h-12 w-12 ' />, title: 'Health', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
+        { id: 5, delay: 600, category: 'life-insurance', icon: <Umbrella className='h-12 w-12 ' />, title: 'Life', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
+        { id: 6, delay: 750, category: 'family-health-insurance', icon: <Users className='h-12 w-12 ' />, title: 'Family Health', colSpan: 'col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2', rowSpan: 'row-span-4' },
     ];
 
     return (
@@ -100,15 +100,27 @@ const Insurances = () => {
 
                         >
                             <Fade triggerOnce>
-                                <div className='flex flex-col items-center'>
+                                <Link
+                                    to={`/insurance-details/${insurance.category}`}
+                                >
+                                    <div className='flex flex-col items-center'>
 
-                                    <div className="absolute bottom-0 left-0 w-full h-full bg-blue-500 transform scale-y-0 origin-bottom transition-all duration-500 group-hover:scale-y-100 z-10"></div>
-                                    <div className="mb-2 text-blue-500 group-hover:text-white duration-300 transition-all ease-in-out z-20">{insurance.icon}</div>
-                                    <p className="text-base font-semibold py-0.5 px-10 lg:px-7 xl:px-10 rounded bg-[#ffd700] z-20 ">{insurance.title}</p>
-                                </div>
+                                        <div className="absolute bottom-0 left-0 w-full h-full bg-blue-500 transform scale-y-0 origin-bottom transition-all duration-500 group-hover:scale-y-100 z-10"></div>
+                                        <div className="mb-2 text-blue-500 group-hover:text-white duration-300 transition-all ease-in-out z-20">{insurance.icon}</div>
+                                        <p className="text-base font-semibold py-0.5 px-10 lg:px-7 xl:px-10 rounded bg-[#ffd700] z-20 ">{insurance.title}</p>
+                                    </div>
+                                </Link>
+
                             </Fade>
                         </Slide>
                     ))}
+                    <Slide triggerOnce direction='up' delay={900} className='relative col-span-10 sm:col-span-5 md:col-span-3 lg:col-span-2 row-span-4 shadow-md border p-4 flex flex-col items-center justify-center overflow-hidden group hover:shadow-lg'>
+                    <button className='flex flex-col items-center justify-center'>
+                        <div className="absolute bottom-0 left-0 w-full h-full bg-blue-500 transform scale-y-0 origin-bottom transition-all duration-500 group-hover:scale-y-100 z-10"></div>
+                        <div className="mb-2 text-blue-500 group-hover:text-white duration-300 transition-all ease-in-out z-20"> <Search className='h-12 w-12 ' /></div>
+                        <p className="text-base font-semibold py-0.5 px-10 lg:px-7 xl:px-10 rounded bg-[#ffd700] z-20 ">More</p>
+                    </button>
+                    </Slide>
                 </div>
             </div>
         </div>
