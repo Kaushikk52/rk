@@ -6,7 +6,7 @@ import "swiper/css/pagination"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Keyboard, Pagination, Autoplay } from "swiper/modules"
 
-import {Fade} from 'react-awesome-reveal'
+import { Fade } from 'react-awesome-reveal'
 
 import { FaCarAlt, FaCoins, FaHeart } from "react-icons/fa";
 
@@ -45,51 +45,51 @@ const ImageCarousel = () => {
   ]
   return (
     <>
-    <Fade triggerOnce>
-      <Swiper
-        slidesPerView={1}
-        slidesPerGroup={1}
-        spaceBetween={20}
-        modules={[Keyboard, Pagination, Autoplay]}
-        pagination={{
-          clickable: true,
-        }}
-        keyboard={{
-          enabled: true,
-        }}
-        autoplay={{
-          delay: 3000,
-        }}
-        speed={500}
-        loop={true}
-        className='container'
-      >
-        {details.map((detail, index) => (
-          <SwiperSlide key={index} className="pb-12">
-            <div className={`rounded-lg p-4 sm:p-6 h-[210px] sm:h-[230px] ${detail.bgColor} text-white shadow-lg`}>
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-medium">{detail.title}</span>
-                {detail.icon}
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-lg sm:text-xl font-bold">
-                  {detail.heading}
-                  <br />
-                  {detail.subheading}
-                </h3>
+      <Fade triggerOnce>
+        <Swiper
+          slidesPerView={1}
+          slidesPerGroup={1}
+          spaceBetween={20}
+          modules={[Keyboard, Pagination, Autoplay]}
+          pagination={{
+            clickable: true,
+          }}
+          keyboard={{
+            enabled: true,
+          }}
+          autoplay={{
+            delay: 3000,
+          }}
+          speed={500}
+          loop={true}
+          className='container'
+        >
+          {details.map((detail, index) => (
+            <SwiperSlide key={index} className="pb-12">
+              <div className={`rounded-lg p-4 sm:p-6 h-[210px] sm:h-[230px] ${detail.bgColor} text-white shadow-lg`}>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-medium">{detail.title}</span>
+                  {detail.icon}
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-lg sm:text-xl font-bold">
+                    {detail.heading}
+                    <br />
+                    {detail.subheading}
+                  </h3>
 
-                {detail.button &&
-                  <button
-                    className="absolute right-4 bottom-16 xl:right-8 px-4 py-2 bg-white text-gray-800 rounded-md hover:bg-gray-100 transition-colors"
-                  >
-                    {detail.buttonText}
-                  </button>
-                }
+                  {detail.button &&
+                    <button
+                      className="absolute right-4 bottom-16 xl:right-8 px-4 py-2 bg-white text-gray-800 rounded-md hover:bg-gray-100 transition-colors"
+                    >
+                      {detail.buttonText}
+                    </button>
+                  }
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </Fade>
     </>
   )

@@ -13,11 +13,13 @@ import AlsoBuy from '../components/AlsoBuy';
 import DynamicSlides from '../components/DynamicSlides';
 import Testimonials from '../components/Testimonials';
 import MiniSlider from '../components/MiniSlider';
+import Hero from '../components/Hero';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
     <>
-      <div className='flex items-center justify-between max-w-7xl container mx-auto px-4'>
+      {/* <div className='flex items-center justify-between max-w-7xl container mx-auto px-4'>
         <div className='md:flex flex-col pl-4 lg:w-6/12 xl:w-5/12 hidden justify-start'>
           <div className='text-4xl font-light text-[#253858] grid grid-rows-2 my-6'>
 
@@ -73,14 +75,30 @@ const Home = () => {
         <div className='mt-10 justify-end lg:w-5/12 min-[320px]:w-full md:w-5/12'>
           <ImageCarousel />
         </div>
-      </div>
+      </div> */}
+
+
+      <Hero />
       <Insurances />
       <MiniSlider />
-      <AlsoBuy />
-      <DynamicSlides />
+      {/* <AlsoBuy /> */}
       <WhyUs />
-      <Testimonials />
+      <DynamicSlides />
       <AdvantageCards />
+      <Testimonials />
+      <section className="py-20 bg-[#f2f7ff] text-black">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Secure Your Future?</h2>
+          <p className="text-xl mb-8">Join thousands of satisfied customers who trust SecureShield for their insurance needs.</p>
+          <Link
+           to='#'
+            className="py-3 px-8 rounded-full font-semibold bg-yellow-300 transition duration-300 inline-block"
+          >
+            Get Started Today
+          </Link>
+        </div>
+      </section>
+
     </>
   )
 }
