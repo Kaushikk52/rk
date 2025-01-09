@@ -1,12 +1,11 @@
+import *  as React  from 'react';
 import { useState } from 'react';
-import * as React from 'react';
-import styled from 'styled-components';
+import { Document, Page, Text, View, StyleSheet, PDFViewer, Image, Font } from '@react-pdf/renderer';
 import { useQuill } from 'react-quilljs';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
 import 'quill/dist/quill.snow.css';
+import styled from 'styled-components';
 
-// Styled Components
+// Styled components for the editable section
 const Container = styled.div`
   max-width: 800px;
   margin: 20px auto;
@@ -73,14 +72,6 @@ const DateSection = styled.div`
   color: #555;
 `;
 
-const Footer = styled.div`
-  text-align: center;
-  border-top: 2px solid #007bff;
-  padding: 10px 0;
-  font-size: 12px;
-  color: #333;
-`;
-
 const Button = styled.button`
   background: #007bff;
   color: white;
@@ -95,50 +86,111 @@ const Button = styled.button`
   }
 `;
 
-// Component
+// Styles for the PDF
+const styles = StyleSheet.create({
+  page: {
+    flexDirection: 'column',
+    backgroundColor: '#ffffff',
+    padding: 30,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+    borderBottom: 2,
+    borderBottomColor: '#007bff',
+    paddingBottom: 10,
+  },
+  logoSection: {
+    textAlign: 'center',
+  },
+  logo: {
+    width: 60,
+    height: 'auto',
+    marginBottom: 5
+  },
+  companyName: {
+    fontSize: 20,
+    margin:0,
+    color: '#007bff',
+  },
+  leftCorner: {
+    display:'flex',
+    flexDirection: 'column',
+    gap: 10,
+    fontSize: 12,
+    color: '#333',
+    alignItems: 'flex-end',
+  },
+  mainSection: {
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  dateSection: {
+    textAlign: 'right',
+    marginBottom: 10,
+    fontSize: 14,
+    color: '#555',
+  },
+  content: {
+    fontSize: 12,
+    lineHeight: 1.5,
+  },
+  footer: {
+    position: 'absolute',
+    bottom: 30,
+    left: 30,
+    right: 30,
+    textAlign: 'center',
+    borderTop: 2,
+    borderTopColor: '#007bff',
+    paddingTop: 10,
+    fontSize: 10,
+  },
+});
+
+// Function to remove HTML tags
+const removeHtmlTags = (str) => {
+  return str.replace(/<[^>]*>/g, '');
+};
+
+// PDF Document component
+const MyDocument = ({ email, phone, date, content }) => (
+  <Document>
+    <Page size="A4" style={styles.page}>
+      <View style={styles.header}>
+        <View style={styles.logoSection}>
+          <Image style={styles.logo} src="/logo.png" />
+          <Text style={styles.companyName}>RK Insurance Services</Text>
+        </View>
+        <View style={styles.leftCorner}>
+          <Text>{email}</Text>
+          <Text>{phone}</Text>
+        </View>
+      </View>
+      <View style={styles.mainSection}>
+        <View style={styles.dateSection}>
+          <Text>{date}</Text>
+        </View>
+        <Text style={styles.content}>{removeHtmlTags(content)}</Text>
+      </View>
+      <View style={styles.footer}>
+        <Text>OFFICE NO. D-319, 2ND FLOOR, SHANTI SHOPPING CENTRE, OPP. MIRA ROAD RAILWAY STATION, MIRA ROAD (EAST), THANE , Pin 401107</Text>
+      </View>
+    </Page>
+  </Document>
+);
+
+// Main component
 const PrintableLetterhead = () => {
   const [email, setEmail] = useState('example@rkinsurance.com');
   const [phone, setPhone] = useState('123-456-7890');
   const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
+  const [showPDF, setShowPDF] = useState(false);
   const { quill, quillRef } = useQuill();
 
-  // Generate PDF
-  const generatePDF = async () => {
-    const printElement = document.getElementById('print-view');
-
-    if (!printElement) {
-      alert('Print content not found!');
-      return;
-    }
-
-    // Temporarily show the hidden printable content
-    printElement.style.display = 'block';
-
-    try {
-      const canvas = await html2canvas(printElement, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: '#ffffff',
-      });
-
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4',
-      });
-
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      pdf.save('letterhead.pdf');
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('There was an error generating the PDF.');
-    } finally {
-      printElement.style.display = 'none';
-    }
+  const generatePDF = () => {
+    setShowPDF(true);
   };
 
   return (
@@ -146,8 +198,8 @@ const PrintableLetterhead = () => {
       {/* User Editable Section */}
       <Container>
         <Header>
-        <LogoSection>
-            <Logo src="public/logo.png" alt="Company Logo" />
+          <LogoSection>
+            <Logo src="/logo.png" alt="Company Logo" />
             <CompanyName>RK Insurance Services</CompanyName>
           </LogoSection>
 
@@ -171,7 +223,6 @@ const PrintableLetterhead = () => {
               />
             </div>
           </LeftCorner>
-
         </Header>
 
         <MainSection>
@@ -195,44 +246,22 @@ const PrintableLetterhead = () => {
           />
         </MainSection>
 
-        <Footer>
-          <p>Address : OFFICE NO. D-319, 2ND FLOOR,<br /> SHANTI SHOPPING CENTRE, OPP. MIRA ROAD RAILWAY STATION, MIRA ROAD (EAST), THANE , Pin 401107</p>
-        </Footer>
-
         <Button onClick={generatePDF}>Generate PDF</Button>
       </Container>
 
-      {/* Printable Content */}
-      <div id="print-view" style={{ display: 'none', padding: '30px', backgroundColor: 'white' }}>
-        <Header>
-          <LogoSection>
-            <Logo src="public/logo.png" alt="Company Logo" />
-            <CompanyName>RK Insurance Services</CompanyName>
-          </LogoSection>
-
-          <LeftCorner>
-            <p><strong>Email:</strong> {email}</p>
-            <p><strong>Phone:</strong> {phone}</p>
-          </LeftCorner>
-        </Header>
-
-        <MainSection>
-          <DateSection>
-            <p>{date}</p>
-          </DateSection>
-
-          <div
-            dangerouslySetInnerHTML={{ __html: quill?.root.innerHTML || '' }}
-            style={{ fontSize: '14px', color: '#333' }}
+      {/* PDF Viewer */}
+      {showPDF && (
+        <PDFViewer width="100%" height={600}>
+          <MyDocument
+            email={email}
+            phone={phone}
+            date={date}
+            content={quill?.root.innerHTML || ''}
           />
-        </MainSection>
-
-        <Footer>
-          <p>OFFICE NO. D-319, 2ND FLOOR, SHANTI SHOPPING CENTRE, OPP. MIRA ROAD RAILWAY STATION, MIRA ROAD (EAST), THANE , Pin 401107</p>
-        </Footer>
-      </div>
+        </PDFViewer>
+      )}
     </>
   );
 };
-
 export default PrintableLetterhead;
+
