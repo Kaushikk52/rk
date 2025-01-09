@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Document, Page, Text, View, StyleSheet, PDFViewer, Image } from '@react-pdf/renderer';
-import 'quill/dist/quill.snow.css'; // Ensure CSS for Quill is included
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import styled from 'styled-components';
 
 // Styled components for the editable section
@@ -186,17 +187,7 @@ export default function PrintableLetterhead() {
   const [phone, setPhone] = useState('123-456-7890');
   const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [showPDF, setShowPDF] = useState(false);
-  const [quill, setQuill] = useState(null);
-
-  // Dynamically load Quill only on the client-side
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const Quill = require('quill'); // Use require here to dynamically import Quill
-      setQuill(new Quill('#quillEditor', {
-        theme: 'snow',
-      }));
-    }
-  }, []);
+  const [content, setContent] = useState('');
 
   const generatePDF = () => {
     setShowPDF(true);
@@ -245,12 +236,15 @@ export default function PrintableLetterhead() {
           </DateSection>
 
           {/* Quill Editor */}
-          <div id="quillEditor" style={{
-            minHeight: '200px',
-            border: '1px solid #ddd',
-            padding: '10px',
-            backgroundColor: '#fff',
-          }}></div>
+          <ReactQuill
+            theme="snow"
+            value={content}
+            onChange={setContent}
+            style={{
+              height: '200px',
+              marginBottom: '50px',
+            }}
+          />
         </MainSection>
 
         <Button onClick={generatePDF}>Generate PDF</Button>
