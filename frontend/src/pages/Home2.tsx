@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { motion } from 'framer-motion';
 import { FaRocket, FaBook, FaUsers } from 'react-icons/fa';
 import Courses from '@/components/Courses';

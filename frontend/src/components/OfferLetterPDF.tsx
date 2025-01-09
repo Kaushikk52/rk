@@ -7,7 +7,6 @@ import {
     Image,
     Font,
   } from "@react-pdf/renderer";
-  import * as React from 'react';
   
   // Register custom fonts
   Font.register({

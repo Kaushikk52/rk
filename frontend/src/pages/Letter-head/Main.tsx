@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import LetterheadEditor from './LetterheadEditor';
 
 export default function LetterHead() {
