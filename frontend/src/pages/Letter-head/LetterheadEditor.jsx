@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Document, Page, Text, View, StyleSheet, PDFViewer, Image } from '@react-pdf/renderer';
 import { useQuill } from 'react-quilljs';
 import 'quill/dist/quill.snow.css';
@@ -182,10 +182,10 @@ const MyDocument = ({ email, phone, date, content }) => (
 
 // Main component
 export default function PrintableLetterhead() {
-  const [email, setEmail] = useState<string>('example@rkinsurance.com');
-  const [phone, setPhone] = useState<string>('123-456-7890');
-  const [date, setDate] = useState<string>(new Date().toISOString().split('T')[0]);
-  const [showPDF, setShowPDF] = useState<boolean>(false);
+  const [email, setEmail] = useState('example@rkinsurance.com');
+  const [phone, setPhone] = useState('123-456-7890');
+  const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
+  const [showPDF, setShowPDF] = useState(false);
   const { quill, quillRef } = useQuill();
 
   const generatePDF = () => {
