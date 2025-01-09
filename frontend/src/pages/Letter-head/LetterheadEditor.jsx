@@ -135,6 +135,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 1.5,
   },
+  paragraph: {
+    marginBottom: 10,
+  },
   footer: {
     position: 'absolute',
     bottom: 30,
@@ -147,6 +150,29 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
 });
+
+const parseHTML = (html) => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, 'text/html');
+  return Array.from(doc.body.childNodes).map((node, index) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      return node.textContent;
+    } else if (node instanceof HTMLElement) {
+      if (node.nodeName === 'P') {
+        return node.textContent + '\n\n';
+      } else if (node.nodeName === 'STRONG') {
+        return node.textContent;
+      } else if (node.nodeName === 'EM') {
+        return node.textContent;
+      } else {
+        return node.textContent;
+      }
+    }
+    return '';
+  }).join('');
+};
+
+
 
 // Function to remove HTML tags
 const removeHtmlTags = (str) => {
@@ -172,7 +198,7 @@ const MyDocument = ({ email, phone, date, content }) => (
         <View style={styles.dateSection}>
           <Text>{date}</Text>
         </View>
-        <Text style={styles.content}>{removeHtmlTags(content)}</Text>
+        <Text style={styles.content}>{parseHTML(content)}</Text>
       </View>
       <View style={styles.footer}>
         <Text>OFFICE NO. D-319, 2ND FLOOR, SHANTI SHOPPING CENTRE, OPP. MIRA ROAD RAILWAY STATION, MIRA ROAD (EAST), THANE , Pin 401107</Text>
@@ -257,7 +283,7 @@ export default function PrintableLetterhead() {
             email={email}
             phone={phone}
             date={date}
-            content={removeHtmlTags(content)}  // Ensure content is extracted from Quill
+            content={content}
           />
         </PDFViewer>
       )}
