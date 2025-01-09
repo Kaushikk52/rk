@@ -257,7 +257,7 @@ export default function PrintableLetterhead() {
             email={email}
             phone={phone}
             date={date}
-            content={removeHtmlTags(quill ? quill.root.innerHTML : '')}  // Ensure content is extracted from Quill
+            content={removeHtmlTags(content)}  // Ensure content is extracted from Quill
           />
         </PDFViewer>
       )}
