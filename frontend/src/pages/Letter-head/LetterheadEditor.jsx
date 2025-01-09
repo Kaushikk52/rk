@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Document, Page, Text, View, StyleSheet, PDFViewer, Image } from '@react-pdf/renderer';
-import { useQuill } from 'react-quilljs';
-import 'quill/dist/quill.snow.css';
+import 'quill/dist/quill.snow.css'; // Ensure CSS for Quill is included
 import styled from 'styled-components';
 
 // Styled components for the editable section
@@ -110,11 +109,11 @@ const styles = StyleSheet.create({
   },
   companyName: {
     fontSize: 20,
-    margin:0,
+    margin: 0,
     color: '#007bff',
   },
   leftCorner: {
-    display:'flex',
+    display: 'flex',
     flexDirection: 'column',
     gap: 10,
     fontSize: 12,
@@ -187,7 +186,17 @@ export default function PrintableLetterhead() {
   const [phone, setPhone] = useState('123-456-7890');
   const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [showPDF, setShowPDF] = useState(false);
-  const { quill, quillRef } = useQuill();
+  const [quill, setQuill] = useState(null);
+
+  // Dynamically load Quill only on the client-side
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const Quill = require('quill'); // Use require here to dynamically import Quill
+      setQuill(new Quill('#quillEditor', {
+        theme: 'snow',
+      }));
+    }
+  }, []);
 
   const generatePDF = () => {
     setShowPDF(true);
@@ -235,15 +244,13 @@ export default function PrintableLetterhead() {
             />
           </DateSection>
 
-          <div
-            ref={quillRef}
-            style={{
-              minHeight: '200px',
-              border: '1px solid #ddd',
-              padding: '10px',
-              backgroundColor: '#fff',
-            }}
-          />
+          {/* Quill Editor */}
+          <div id="quillEditor" style={{
+            minHeight: '200px',
+            border: '1px solid #ddd',
+            padding: '10px',
+            backgroundColor: '#fff',
+          }}></div>
         </MainSection>
 
         <Button onClick={generatePDF}>Generate PDF</Button>
@@ -256,7 +263,7 @@ export default function PrintableLetterhead() {
             email={email}
             phone={phone}
             date={date}
-            content={removeHtmlTags(quill?.root.innerHTML || '')}
+            content={removeHtmlTags(quill ? quill.root.innerHTML : '')}  // Ensure content is extracted from Quill
           />
         </PDFViewer>
       )}
