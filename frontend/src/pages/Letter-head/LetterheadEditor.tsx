@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Document, Page, Text, View, StyleSheet, PDFViewer, Image, Font } from '@react-pdf/renderer';
+import { useState, useEffect } from 'react';
+import { Document, Page, Text, View, StyleSheet, PDFViewer, Image } from '@react-pdf/renderer';
 import { useQuill } from 'react-quilljs';
 import 'quill/dist/quill.snow.css';
 import styled from 'styled-components';
@@ -149,12 +149,12 @@ const styles = StyleSheet.create({
 });
 
 // Function to remove HTML tags
-const removeHtmlTags = (str:any) => {
+const removeHtmlTags = (str: string) => {
   return str.replace(/<[^>]*>/g, '');
 };
 
 // PDF Document component
-const MyDocument = ({ email, phone, date, content }:any) => (
+const MyDocument = ({ email, phone, date, content }: any) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.header}>
@@ -181,11 +181,11 @@ const MyDocument = ({ email, phone, date, content }:any) => (
 );
 
 // Main component
-const PrintableLetterhead = () => {
-  const [email, setEmail] = useState('example@rkinsurance.com');
-  const [phone, setPhone] = useState('123-456-7890');
-  const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
-  const [showPDF, setShowPDF] = useState(false);
+export default function PrintableLetterhead() {
+  const [email, setEmail] = useState<string>('example@rkinsurance.com');
+  const [phone, setPhone] = useState<string>('123-456-7890');
+  const [date, setDate] = useState<string>(new Date().toISOString().split('T')[0]);
+  const [showPDF, setShowPDF] = useState<boolean>(false);
   const { quill, quillRef } = useQuill();
 
   const generatePDF = () => {
@@ -261,6 +261,4 @@ const PrintableLetterhead = () => {
       )}
     </>
   );
-};
-export default PrintableLetterhead;
-
+}
