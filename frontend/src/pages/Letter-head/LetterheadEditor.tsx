@@ -150,12 +150,12 @@ const styles = StyleSheet.create({
 });
 
 // Function to remove HTML tags
-const removeHtmlTags = (str) => {
+const removeHtmlTags = (str:any) => {
   return str.replace(/<[^>]*>/g, '');
 };
 
 // PDF Document component
-const MyDocument = ({ email, phone, date, content }) => (
+const MyDocument = ({ email, phone, date, content }:any) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.header}>
