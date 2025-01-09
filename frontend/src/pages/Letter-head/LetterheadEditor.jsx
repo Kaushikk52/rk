@@ -150,6 +150,7 @@ const styles = StyleSheet.create({
 
 // Function to remove HTML tags
 const removeHtmlTags = (str) => {
+  if (typeof str !== 'string') return '';  
   return str.replace(/<[^>]*>/g, '');
 };
 
@@ -255,7 +256,7 @@ export default function PrintableLetterhead() {
             email={email}
             phone={phone}
             date={date}
-            content={quill?.root.innerHTML || ''}
+            content={removeHtmlTags(quill?.root.innerHTML || '')}
           />
         </PDFViewer>
       )}
