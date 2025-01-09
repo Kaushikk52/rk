@@ -1,4 +1,3 @@
-import *  as React  from 'react';
 import { useState } from 'react';
 import { Document, Page, Text, View, StyleSheet, PDFViewer, Image, Font } from '@react-pdf/renderer';
 import { useQuill } from 'react-quilljs';
