@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdown, setIsDropdownOpen] = useState(false);
+  const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false);
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
 
   const navitems = [
     {
@@ -27,20 +28,35 @@ const Navbar = () => {
       name: "Contact",
       link: "/contact-us",
     },
+  ];
 
+  const generatorItems = [
+    { id: 1, name: "Offer Letter", link: "/offer-letter" },
+    { id: 2, name: "Letter Head", link: "/letter-head" },
+    { id: 3, name: "Appointment Letter", link: "/appointment-letter" },
   ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    setIsMobileDropdownOpen(false);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdown)
+  const toggleDesktopDropdown = () => {
+    setIsDesktopDropdownOpen(!isDesktopDropdownOpen);
+  };
+
+  const toggleMobileDropdown = () => {
+    setIsMobileDropdownOpen(!isMobileDropdownOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setIsMobileDropdownOpen(false);
   };
 
   return (
     <nav className="w-full bg-white text-black shadow-lg p-2">
-      <div className="flex items-center justify-between  max-w-7xl container mx-auto">
+      <div className="flex items-center justify-between max-w-7xl container mx-auto">
         <div className="flex justify-start items-center">
           <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl my-2 mx-4 flex gap-2 items-start">
             <span className="text-[#ffd700]">RK</span>
@@ -100,41 +116,35 @@ const Navbar = () => {
               {item.name}
             </NavLink>
           ))}
-          <button onClick={toggleDropdown} className={`relative `}>
-            <div className={`flex gap-1 px-2.5 items-center ${isDropdown ? 'text-yellow-400' : ''}`}>
-            <p className="font-medium text-lg">Generators</p>
-            <ChevronDown className={`${isDropdown ? 'rotate-180' : 'rotate-0'} transition-all duration-200 ease-in-out`} />
+          <button onClick={toggleDesktopDropdown} className="relative">
+            <div className={`flex gap-1 px-2.5 items-center ${isDesktopDropdownOpen ? 'text-yellow-400' : ''}`}>
+              <p className="font-medium text-lg">Generators</p>
+              <ChevronDown className={`${isDesktopDropdownOpen ? 'rotate-180' : 'rotate-0'} transition-all duration-200 ease-in-out`} />
             </div>
 
-            {isDropdown &&
+            {isDesktopDropdownOpen && (
               <div className="absolute top-10 left-0 bg-white w-56 p-2 space-y-1 z-50 rounded">
-                <li className="">
-                  <NavLink to='/offer-letter'
-                    className={({ isActive }) =>
-                      isActive
-                        ? "md:text-base lg:text-lg font-semibold block py-2 bg-[#ffd700] text-black transition-colors duration-300 ease-in-out"
-                        : "md:text-base lg:text-lg font-medium block py-2 bg-gray-200 hover:bg-[#ffd700] duration-300 ease-in-out"
-                    }>
-                    Offer Letter
-                  </NavLink>
-                </li>
-                <li className="">
-                  <NavLink to='/letter-head'
-                    className={({ isActive }) =>
-                      isActive
-                        ? "md:text-base lg:text-lg font-semibold block py-2 bg-[#ffd700] text-black transition-colors duration-300 ease-in-out"
-                        : "md:text-base lg:text-lg font-medium block py-2 bg-gray-200 hover:bg-[#ffd700] duration-300 ease-in-out"
-                    }>
-                   Letter Head
-                  </NavLink>
-                </li>
+                {generatorItems.map((item) => (
+                  <li key={item.id} className="">
+                    <NavLink
+                      to={item.link}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "md:text-base lg:text-lg font-semibold block py-2 bg-[#ffd700] text-black transition-colors duration-300 ease-in-out"
+                          : "md:text-base lg:text-lg font-medium block py-2 bg-gray-200 hover:bg-[#ffd700] duration-300 ease-in-out"
+                      }
+                    >
+                      {item.name}
+                    </NavLink>
+                  </li>
+                ))}
               </div>
-            }
+            )}
           </button>
         </div>
         {/* Login button (hidden on mobile) */}
         <div className="hidden md:flex items-end justify-end">
-          <button className="px-10 md:px-4 lg:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl md:text-base lg:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-black font-semibold  duration-200 ease-in-out transition-all">
+          <button className="px-10 md:px-4 lg:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl md:text-base lg:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-black font-semibold duration-200 ease-in-out transition-all">
             Pay Now
           </button>
         </div>
@@ -153,15 +163,44 @@ const Navbar = () => {
                     ? "block text-lg font-semibold bg-[#ffd700] text-black py-2 px-3 rounded transition-colors duration-300 ease-in-out"
                     : "block text-lg font-medium py-2 px-3 text-black hover:text-[#ffd700] duration-300 ease-in-out"
                 }
-                onClick={toggleMenu}
+                onClick={closeMenu}
               >
                 {item.name}
               </NavLink>
             ))}
+            <div className="relative">
+              <button
+                onClick={toggleMobileDropdown}
+                className={`flex justify-between items-center w-full py-2 px-3 text-lg font-medium ${
+                  isMobileDropdownOpen ? 'text-[#ffd700]' : 'text-black'
+                }`}
+              >
+                Generators
+                <ChevronDown className={`${isMobileDropdownOpen ? 'rotate-180' : 'rotate-0'} transition-all duration-200 ease-in-out`} />
+              </button>
+              {isMobileDropdownOpen && (
+                <div className="bg-gray-100 rounded mt-1">
+                  {generatorItems.map((item) => (
+                    <NavLink
+                      key={item.id}
+                      to={item.link}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block text-base font-semibold bg-[#ffd700] text-black py-2 px-6 transition-colors duration-300 ease-in-out"
+                          : "block text-base font-medium py-2 px-6 text-black hover:bg-gray-200 duration-300 ease-in-out"
+                      }
+                      onClick={closeMenu}
+                    >
+                      {item.name}
+                    </NavLink>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-          <div className="px-4">
+          <div className="px-4 mt-4">
             <button className="w-full text-center uppercase py-2 text-base tracking-wide font-semibold border-2 border-[#ffd700] text-[#ffd700] hover:bg-[#ffd700] hover:text-black rounded transition-colors duration-300 ease-in-out">
-              Login
+              Pay Now
             </button>
           </div>
         </div>
@@ -171,3 +210,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

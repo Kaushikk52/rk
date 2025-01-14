@@ -24,6 +24,30 @@ body {
 }
 
 
+@media print {
+  #print-view {
+    display: block;
+    min-height: 100vh; /* Ensure it occupies the entire viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures footer is pushed to the bottom */
+  }
+
+  #print-view > .Header,
+  #print-view > .MainSection,
+  #print-view > .Footer {
+    flex-shrink: 0;
+  }
+
+  .Footer {
+    margin-top: auto; /* Push the footer to the bottom */
+    text-align: center;
+    border-top: 2px solid #007bff;
+    padding: 10px 0;
+    font-size: 12px;
+    color: #333;
+  }
+}
 
 
 

@@ -74,6 +74,7 @@ const DateSection = styled.div`
 `;
 
 const Footer = styled.div`
+  margin-top: auto;
   text-align: center;
   border-top: 2px solid #007bff;
   padding: 10px 0;
