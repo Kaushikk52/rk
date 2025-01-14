@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaStore, FaFileContract, FaInfoCircle, FaExchangeAlt, FaBox, FaCreditCard, FaTools, FaLink, FaComments, FaUserShield, FaExclamationTriangle, FaBan, FaHandPaper, FaBalanceScale, FaFileSignature, FaGavel, FaEdit } from 'react-icons/fa';
 import Section from '@/components/Section';
-import * as React from 'react';
+import  React from 'react';
 
 const Conditions: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string | null>('overview');
