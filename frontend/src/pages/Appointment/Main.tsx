@@ -186,7 +186,7 @@ export default function AppointmentLetter() {
           </div>
           <PDFDownloadLink
             document={<AppointmentLetterPDF data={formData} />}
-            fileName="offer-letter.pdf"
+            fileName="appointment-letter.pdf"
             className="block w-full"
           >
             

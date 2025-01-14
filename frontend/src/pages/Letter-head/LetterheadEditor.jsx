@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Document, Page, Text, View, StyleSheet, PDFViewer, Image } from '@react-pdf/renderer';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
 const parseHTML = (html) => {
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, 'text/html');
-  return Array.from(doc.body.childNodes).map((node, index) => {
+  return Array.from(doc.body.childNodes).map((node) => {
     if (node.nodeType === Node.TEXT_NODE) {
       return node.textContent;
     } else if (node instanceof HTMLElement) {
@@ -173,14 +173,8 @@ const parseHTML = (html) => {
 };
 
 
-
-// Function to remove HTML tags
-const removeHtmlTags = (str) => {
-  if (typeof str !== 'string') return '';  
-  return str.replace(/<[^>]*>/g, '');
-};
-
 // PDF Document component
+// eslint-disable-next-line react/prop-types
 const MyDocument = ({ email, phone, date, content }) => (
   <Document>
     <Page size="A4" style={styles.page}>
