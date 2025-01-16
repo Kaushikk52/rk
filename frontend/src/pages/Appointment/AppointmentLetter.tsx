@@ -301,7 +301,8 @@ import AppointmentLetter from './Main';
           <View style={styles.section}>
             <Text style={styles.text}>
              We are excited to welcome you to our team and believe that your contributions 
-             will be valuable to our organization's success. If you have any questions or
+             will be valuable to our organization's success.Terms of performance expectations, you and your team will be required to achieve a target of 10 times your monthly CTC, with a stretch target of 10 times your monthly CTC. Should not be less than 7 Time.
+             If target less than 40% you get only basic pay and bailance pay and target curry forward for nest month. If you have any questions or
              need further clarifcation, please do not hesitate to contact us.
              Congratulations once again on your appointment, and we look forward to 
              having you on board.
