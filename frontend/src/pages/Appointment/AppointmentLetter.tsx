@@ -80,9 +80,9 @@ import AppointmentLetter from './Main';
       color: "#2C3E50",
     },
     subtitle: {
-      fontSize: 12,
-      fontWeight: 600,
-      marginBottom: 5,
+      fontSize: 8,
+      fontWeight: 500,
+      marginBottom: 3,
       width: 200,
       maxWidth: 200,
       color: "#34495E",
