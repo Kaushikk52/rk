@@ -43,7 +43,7 @@ const Courses = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Enroll Now
+              Pay Now (Rs 1200/-)
             </motion.button>
           </motion.div>
         ))}

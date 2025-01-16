@@ -14,8 +14,11 @@ const Footer = () => {
     { goto: '/', linkText: 'Home', },
     { goto: '/about-us', linkText: 'About us', },
     { goto: '/contact-us', linkText: 'Contact us', },
-    { goto: '/services', linkText: 'Services', },
+    // { goto: '/services', linkText: 'Services', },
     { goto: '/conditions', linkText: 'Terms & Conditions', },
+    { goto: '/privacy-policy', linkText: 'Privacy Policy', },
+    { goto: '/refund-policy', linkText: 'Refund Policy', },
+
   ]
 
   return (

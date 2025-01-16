@@ -89,7 +89,7 @@ const About = () => {
         </div>
       </div>
 
-      <Team />
+      {/* <Team /> */}
 
     </>
   )
