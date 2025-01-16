@@ -160,9 +160,9 @@ const Navbar = () => {
         </div>
         {/* Login button (hidden on mobile) */}
         <div className="hidden md:flex items-end justify-end">
-          <button className="px-10 md:px-3 lg:px-8 xl:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl  md:text-sm lg:text-lg xl:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-[#253858] font-semibold duration-200 ease-in-out transition-all">
+          {/* <button className="px-10 md:px-3 lg:px-8 xl:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl  md:text-sm lg:text-lg xl:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-[#253858] font-semibold duration-200 ease-in-out transition-all">
             Pay Now
-          </button>
+          </button> */}
         </div>
       </div>
 

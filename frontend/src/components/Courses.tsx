@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
 
+
 const courses = [
   { id: 1, title: 'Introduction to React', description: 'Learn the basics of React and build your first app.' },
   { id: 2, title: 'Advanced JavaScript', description: 'Deep dive into advanced JavaScript concepts and patterns.' },
@@ -43,7 +44,7 @@ const Courses = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Pay Now (Rs 1200/-)
+              Enroll Now
             </motion.button>
           </motion.div>
         ))}
