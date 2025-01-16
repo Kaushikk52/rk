@@ -12,6 +12,7 @@ import InsuranceDetailsPage from "./pages/InsuranceDetailsPage";
 import Generator from "./pages/Offer-letter/Main"
 import LetterHead from "./pages/Letter-head/Main"
 import AppointmentLetter from "./pages/Appointment/Main"
+import Courses from "./pages/Courses";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/courses" element={<Courses />} />
           <Route path="/conditions" element={<Conditions />} />
           <Route path="/insurance-details/:title" element={<InsuranceDetailsPage />} />
           <Route path="/offer-letter" element={<Generator />} />
