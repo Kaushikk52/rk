@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Slide, Fade } from 'react-awesome-reveal'
 
+import Services_Hero_Bg_Image from '../assets/services-images/services-hero.jpg'
+
 import { BsFillLightningChargeFill } from "react-icons/bs";
 
 const Services = () => {
@@ -16,7 +18,40 @@ const Services = () => {
 
   return (
     <>
-      <div className='max-w-7xl container mx-auto px-4 my-10'>
+
+      <Fade triggerOnce>
+        <div className='w-full'>
+          <div
+            style={{
+              backgroundImage: `url(${Services_Hero_Bg_Image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+            className='relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]'
+          >
+            <div className='absolute inset-0 bg-zinc-900 bg-opacity-65 text-white'>
+              <div className='absolute inset-0 flex flex-col items-center justify-center p-4 text-center'>
+                <h1 className='text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black mb-2 sm:mb-4'>
+                Protecting What Matters Most
+                </h1>
+                <p className='text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold mb-4 sm:mb-6 md:mb-8 max-w-3xl'>
+                Comprehensive solutions designed to secure your future and provide peace of mind
+                </p>
+                {/* <div className='flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+                  <button className='w-full sm:w-auto border-2 border-transparent bg-[#ffd700] text-black py-2 px-4 sm:px-6 md:px-8 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-semibold rounded-sm transition duration-300 ease-in-out hover:bg-[#e6c200]'>
+                    Explore Plans
+                  </button>
+                  <button className='w-full sm:w-auto border-2 border-[#ffd700] text-[#ffd700] py-2 px-4 sm:px-6 md:px-8 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-semibold rounded-sm transition duration-300 ease-in-out hover:bg-[#ffd700] hover:text-black'>
+                    Contact us
+                  </button>
+                </div> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Fade>
+
+      <div className='max-w-7xl container mx-auto px-4 my-10 md:my-14'>
         <div className='flex flex-col space-y-8 xs:text-center lg:text-left lg:flex-row lg:space-y-0 lg:justify-between lg:space-x-10 my-10'>
 
           <Fade triggerOnce className='lg:w-1/2'>
@@ -48,7 +83,7 @@ const Services = () => {
                 triggerOnce
                 direction='up'
                 delay={service.delay}
-                >
+              >
                 <Fade triggerOnce>
                   <div className='p-3 rounded-full my-4 bg-yellow-100 bg-opacity-85'>
                     <BsFillLightningChargeFill className='h-4 w-4 text-yellow-400 ' />

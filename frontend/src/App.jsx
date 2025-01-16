@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-// import Home from "./pages/Home";
+import Home from "./pages/Home";
 import Home2 from "./pages/Home2";
 import Services from "./pages/Services";
 import About from "./pages/About";
@@ -19,8 +19,8 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* <Route index element={<Home />} /> */}
-          <Route index element={<Home2 />} />
+          <Route index element={<Home />} />
+          {/* <Route index element={<Home2 />} /> */}
           <Route path="/services" element={<Services />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/contact-us" element={<Contact />} />

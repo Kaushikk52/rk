@@ -6,7 +6,8 @@ import { Fade, Slide } from 'react-awesome-reveal'
 import Sell from '../assets/courses-images/sell.png'
 import Explain from '../assets/courses-images/explain.png'
 
-import Conditions from '../pages/Conditions'
+// import Conditions from '../pages/Conditions'
+import Conditions2 from '../pages/Conditions2'
 
 const Courses = () => {
     return (
@@ -84,7 +85,8 @@ const Courses = () => {
                 </Fade>
 
                 <div className='pt-10'>
-                    <Conditions />
+                    {/* <Conditions /> */}
+                    <Conditions2 />
                 </div>
 
                 <Fade triggerOnce>

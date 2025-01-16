@@ -1,8 +1,11 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
+
+  const location = useLocation();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
@@ -41,14 +44,22 @@ const Navbar = () => {
     { id: 3, name: "Appointment Letter", link: "/appointment-letter" },
   ];
 
+  const isGeneratorActive = ['/offer-letter', '/letter-head', '/appointment-letter'].some((path) =>
+    location.pathname.startsWith(path)
+  );
+
+  useEffect(() => {
+    if(isGeneratorActive) {
+      setIsMobileDropdownOpen(true);
+    } else {
+      setIsMobileDropdownOpen(false);
+    }
+  },isMobileDropdownOpen)
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    setIsMobileDropdownOpen(false);
   };
 
-  const toggleDesktopDropdown = () => {
-    setIsDesktopDropdownOpen(!isDesktopDropdownOpen);
-  };
 
   const toggleMobileDropdown = () => {
     setIsMobileDropdownOpen(!isMobileDropdownOpen);
@@ -56,8 +67,8 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
-    setIsMobileDropdownOpen(false);
   };
+
 
   return (
     <nav className="w-full bg-white text-black shadow-lg py-2 px-4">
@@ -111,6 +122,7 @@ const Navbar = () => {
           {navitems.map((item) => (
             <NavLink
               key={item.id}
+              onClick={() => { setIsDesktopDropdownOpen(false) }}
               to={item.link}
               className={({ isActive }) =>
                 isActive
@@ -121,9 +133,13 @@ const Navbar = () => {
               {item.name}
             </NavLink>
           ))}
-          <button onClick={toggleDesktopDropdown} className="relative">
-            <div className={`flex gap-1 px-2.5 items-center ${isDesktopDropdownOpen ? 'text-yellow-400' : 'text-[#253858]'}`}>
-              <p className="font-medium md:text-xs lg:text-sm xl:text-lg">Generators</p>
+          <button
+            className={`relative`}
+            onMouseEnter={() => {setIsDesktopDropdownOpen(true)}}
+            onMouseLeave={() => {setIsDesktopDropdownOpen(false)}}
+            >
+            <div className={`flex gap-1 px-2.5 py-2 rounded items-center ${isGeneratorActive ? 'bg-[#ffd700] text-[#253858]' : ''}`}>
+              <p className={`font-medium md:text-xs lg:text-sm xl:text-lg `}>Generators</p>
               <ChevronDown className={`${isDesktopDropdownOpen ? 'rotate-180' : 'rotate-0'} transition-all duration-200 ease-in-out`} />
             </div>
 
@@ -132,6 +148,7 @@ const Navbar = () => {
                 {generatorItems.map((item) => (
                   <li key={item.id} className="">
                     <NavLink
+                      onClick={() => { setIsDesktopDropdownOpen(false) }}
                       to={item.link}
                       className={({ isActive }) =>
                         isActive
@@ -155,6 +172,8 @@ const Navbar = () => {
         </div>
       </div>
 
+
+
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden my-4">
@@ -162,23 +181,22 @@ const Navbar = () => {
             {navitems.map((item) => (
               <NavLink
                 key={item.id}
+                onClick={closeMenu}
                 to={item.link}
                 className={({ isActive }) =>
                   isActive
                     ? "block text-lg font-semibold bg-[#ffd700] text-[#253858] py-2 px-3 rounded transition-colors duration-300 ease-in-out"
                     : "block text-lg font-medium py-2 px-3 text-[#253858] hover:text-[#ffd700] duration-300 ease-in-out"
                 }
-                onClick={closeMenu}
+            
               >
                 {item.name}
               </NavLink>
             ))}
-            <div className="relative">
+            <div className={`relative `}>
               <button
                 onClick={toggleMobileDropdown}
-                className={`flex justify-between items-center w-full py-2 px-3 text-lg font-medium ${
-                  isMobileDropdownOpen ? 'text-[#ffd700]' : 'text-[#253858]'
-                }`}
+                className={`flex justify-between items-center w-full py-2 px-3 text-lg font-medium rounded text-[#253858] ${isGeneratorActive ? 'bg-[#ffd700] font-semibold' : ''} `}
               >
                 Generators
                 <ChevronDown className={`${isMobileDropdownOpen ? 'rotate-180' : 'rotate-0'} transition-all duration-200 ease-in-out`} />
@@ -188,13 +206,14 @@ const Navbar = () => {
                   {generatorItems.map((item) => (
                     <NavLink
                       key={item.id}
+                      onClick={closeMenu}
                       to={item.link}
                       className={({ isActive }) =>
                         isActive
                           ? "block text-base font-semibold bg-[#ffd700] text-[#253858] py-2 px-6 transition-colors duration-300 ease-in-out"
                           : "block text-base font-medium py-2 px-6 text-[#253858] hover:bg-gray-200 duration-300 ease-in-out"
                       }
-                      onClick={closeMenu}
+                     
                     >
                       {item.name}
                     </NavLink>
