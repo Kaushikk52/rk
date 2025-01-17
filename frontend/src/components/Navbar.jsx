@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false);
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
 
   const navitems = [
     {
@@ -10,11 +13,11 @@ const Navbar = () => {
       name: "Home",
       link: "/",
     },
-    // {
-    //   id: 2,
-    //   name: "Services",
-    //   link: "/services",
-    // },
+    {
+      id: 2,
+      name: "Services",
+      link: "/services",
+    },
     {
       id: 3,
       name: "About",
@@ -22,33 +25,38 @@ const Navbar = () => {
     },
     {
       id: 4,
-      name: "Courses",
-      link: "/courses",
-    },
-    {
-      id: 5,
       name: "Contact",
       link: "/contact-us",
     },
     {
-      id: 6,
-      name: "Privacy Policy",
-      link: "/privacy-policy",
+      id: 5,
+      name: "Courses",
+      link: "/courses",
     },
-    {
-      id: 7,
-      name: "Refund Policy",
-      link: "/refund-policy",
-    },
-    
+  ];
+
+  const generatorItems = [
+    { id: 1, name: "Offer Letter", link: "/offer-letter" },
+    { id: 2, name: "Letter Head", link: "/letter-head" },
+    { id: 3, name: "Appointment Letter", link: "/appointment-letter" },
   ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    setIsMobileDropdownOpen(false);
+  };
+
+  const toggleDesktopDropdown = () => {
+    setIsDesktopDropdownOpen(!isDesktopDropdownOpen);
+  };
+
+  const toggleMobileDropdown = () => {
+    setIsMobileDropdownOpen(!isMobileDropdownOpen);
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    setIsMobileDropdownOpen(false);
   };
 
   return (
@@ -113,7 +121,7 @@ const Navbar = () => {
               {item.name}
             </NavLink>
           ))}
-          {/* <button onClick={toggleDesktopDropdown} className="relative">
+          <button onClick={toggleDesktopDropdown} className="relative">
             <div className={`flex gap-1 px-2.5 items-center ${isDesktopDropdownOpen ? 'text-yellow-400' : 'text-[#253858]'}`}>
               <p className="font-medium md:text-xs lg:text-sm xl:text-lg">Generators</p>
               <ChevronDown className={`${isDesktopDropdownOpen ? 'rotate-180' : 'rotate-0'} transition-all duration-200 ease-in-out`} />
@@ -137,13 +145,13 @@ const Navbar = () => {
                 ))}
               </div>
             )}
-          </button> */}
+          </button>
         </div>
         {/* Login button (hidden on mobile) */}
         <div className="hidden md:flex items-end justify-end">
-          {/* <button className="px-10 md:px-3 lg:px-8 xl:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl  md:text-sm lg:text-lg xl:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-[#253858] font-semibold duration-200 ease-in-out transition-all">
+          <button className="px-10 md:px-3 lg:px-8 xl:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl  md:text-sm lg:text-lg xl:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-[#253858] font-semibold duration-200 ease-in-out transition-all">
             Pay Now
-          </button> */}
+          </button>
         </div>
       </div>
 
@@ -165,7 +173,7 @@ const Navbar = () => {
                 {item.name}
               </NavLink>
             ))}
-            {/* <div className="relative">
+            <div className="relative">
               <button
                 onClick={toggleMobileDropdown}
                 className={`flex justify-between items-center w-full py-2 px-3 text-lg font-medium ${
@@ -193,7 +201,7 @@ const Navbar = () => {
                   ))}
                 </div>
               )}
-            </div> */}
+            </div>
           </div>
           <div className="px-4 mt-4">
             <button className="w-full text-center uppercase py-2 text-base tracking-wide font-semibold border-2 border-[#ffd700] text-[#ffd700] hover:bg-[#ffd700] hover:text-[#253858] rounded transition-colors duration-300 ease-in-out">
@@ -207,4 +215,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
