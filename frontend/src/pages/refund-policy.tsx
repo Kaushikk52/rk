@@ -19,7 +19,7 @@ function RefundPolicy() {
       </section>
 
       {/* Hard Goods Refund Section */}
-      <section className="mb-8">
+      {/* <section className="mb-8">
         <h3 className="text-xl font-bold text-blue-900 mb-4">
           Refunds of Hard Goods:
         </h3>
@@ -40,7 +40,7 @@ function RefundPolicy() {
             <li>Item</li>
           </ul>
         </div>
-      </section>
+      </section> */}
 
       {/* Digital/Subscription Refund Section */}
       <section className="mb-8">

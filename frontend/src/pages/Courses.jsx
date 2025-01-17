@@ -1,12 +1,7 @@
-import React from 'react'
-
-import { FaArrowRight } from "react-icons/fa6";
-import { Fade, Slide } from 'react-awesome-reveal'
+import { Fade} from 'react-awesome-reveal'
 
 import Sell from '../assets/courses-images/sell.png'
 import Explain from '../assets/courses-images/explain.png'
-
-import Conditions from '../pages/Conditions'
 
 const Courses = () => {
     return (
@@ -83,11 +78,11 @@ const Courses = () => {
                     </div>
                 </Fade>
 
-                <div className='pt-10'>
+                {/* <div className='pt-10'>
                     <Conditions />
-                </div>
+                </div> */}
 
-                <Fade triggerOnce>
+                {/* <Fade triggerOnce>
                 <Slide triggerOnce direction='up' className='px-4'>
                     <div className=' flex justify-center min-[425px]:justify-end mb-10 '>
                         <button className="uppercase flex justify-center items-center gap-x-4 text-base mt-6 px-6 py-3 text-[#253858] font-bold rounded bg-[#ffd700]">
@@ -95,7 +90,7 @@ const Courses = () => {
                         </button>
                     </div>
                 </Slide>
-                </Fade>
+                </Fade> */}
 
             </div>
         </>

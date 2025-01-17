@@ -1,11 +1,9 @@
-import React from "react";
-
 import { Slide, Fade } from "react-awesome-reveal";
 
 import TeamBG1 from "../assets/about-us-images/team-1.jpg";
 import Team2 from "../assets/about-us-images/team-2.png";
 import House from "../assets/about-us-images/home-insurance.png";
-import Team from "../components/Team";
+
 
 const About = () => {
   return (
@@ -28,14 +26,14 @@ const About = () => {
                 <p className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold mb-4 sm:mb-6 md:mb-8 max-w-3xl">
                   Education is life itself.
                 </p>
-                <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                {/* <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4">
                   <button className="w-full sm:w-auto border-2 border-transparent bg-[#ffd700] text-black py-2 px-4 sm:px-6 md:px-8 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-semibold rounded-sm transition duration-300 ease-in-out hover:bg-[#e6c200]">
                     Explore Courses
                   </button>
                   <button className="w-full sm:w-auto border-2 border-[#ffd700] text-[#ffd700] py-2 px-4 sm:px-6 md:px-8 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-semibold rounded-sm transition duration-300 ease-in-out hover:bg-[#ffd700] hover:text-black">
                     Contact us
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

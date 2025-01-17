@@ -39,13 +39,13 @@ const Courses = () => {
           >
             <h2 className="text-2xl font-semibold mb-2">{course.title}</h2>
             <p className="text-gray-600">{course.description}</p>
-            <motion.button
+            {/* <motion.button
               className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Enroll Now
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         ))}
       </div>

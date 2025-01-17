@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false);
-  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
 
   const navitems = [
     {
@@ -46,28 +43,12 @@ const Navbar = () => {
     
   ];
 
-  const generatorItems = [
-    { id: 1, name: "Offer Letter", link: "/offer-letter" },
-    { id: 2, name: "Letter Head", link: "/letter-head" },
-    { id: 3, name: "Appointment Letter", link: "/appointment-letter" },
-  ];
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    setIsMobileDropdownOpen(false);
-  };
-
-  const toggleDesktopDropdown = () => {
-    setIsDesktopDropdownOpen(!isDesktopDropdownOpen);
-  };
-
-  const toggleMobileDropdown = () => {
-    setIsMobileDropdownOpen(!isMobileDropdownOpen);
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
-    setIsMobileDropdownOpen(false);
   };
 
   return (
