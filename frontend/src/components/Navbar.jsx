@@ -16,11 +16,11 @@ const Navbar = () => {
       name: "Home",
       link: "/",
     },
-    {
-      id: 2,
-      name: "Services",
-      link: "/services",
-    },
+    // {
+    //   id: 2,
+    //   name: "Services",
+    //   link: "/services",
+    // },
     {
       id: 3,
       name: "About",
@@ -28,14 +28,25 @@ const Navbar = () => {
     },
     {
       id: 4,
+      name: "Courses",
+      link: "/courses",
+    },
+    {
+      id: 5,
       name: "Contact",
       link: "/contact-us",
     },
     {
-      id: 5,
-      name: "Courses",
-      link: "/courses",
+      id: 6,
+      name: "Privacy Policy",
+      link: "/privacy-policy",
     },
+    {
+      id: 7,
+      name: "Refund Policy",
+      link: "/refund-policy",
+    },
+    
   ];
 
   const generatorItems = [
@@ -138,10 +149,10 @@ const Navbar = () => {
             onMouseEnter={() => {setIsDesktopDropdownOpen(true)}}
             onMouseLeave={() => {setIsDesktopDropdownOpen(false)}}
             >
-            <div className={`flex gap-1 px-2.5 py-2 rounded items-center ${isGeneratorActive ? 'bg-[#ffd700] text-[#253858]' : ''}`}>
+            {/* <div className={`flex gap-1 px-2.5 py-2 rounded items-center ${isGeneratorActive ? 'bg-[#ffd700] text-[#253858]' : ''}`}>
               <p className={`font-medium md:text-xs lg:text-sm xl:text-lg `}>Generators</p>
               <ChevronDown className={`${isDesktopDropdownOpen ? 'rotate-180' : 'rotate-0'} transition-all duration-200 ease-in-out`} />
-            </div>
+            </div> */}
 
             {isDesktopDropdownOpen && (
               <div className="absolute top-10 left-0 bg-white w-56 p-2 space-y-1 z-50 rounded">
@@ -166,9 +177,9 @@ const Navbar = () => {
         </div>
         {/* Login button (hidden on mobile) */}
         <div className="hidden md:flex items-end justify-end">
-          <button className="px-10 md:px-3 lg:px-8 xl:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl  md:text-sm lg:text-lg xl:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-[#253858] font-semibold duration-200 ease-in-out transition-all">
+          {/* <button className="px-10 md:px-3 lg:px-8 xl:px-10 py-1.5 md:py-1 lg:py-1.5 text-xl  md:text-sm lg:text-lg xl:text-xl border-2 text-[#ffd700] border-[#ffd700] rounded hover:bg-[#ffd700] hover:border-transparent hover:text-[#253858] font-semibold duration-200 ease-in-out transition-all">
             Pay Now
-          </button>
+          </button> */}
         </div>
       </div>
 

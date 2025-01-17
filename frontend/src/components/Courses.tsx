@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
 
+
 const courses = [
   { id: 1, title: 'Introduction to React', description: 'Learn the basics of React and build your first app.' },
   { id: 2, title: 'Advanced JavaScript', description: 'Deep dive into advanced JavaScript concepts and patterns.' },

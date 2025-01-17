@@ -13,6 +13,9 @@ import Generator from "./pages/Offer-letter/Main"
 import LetterHead from "./pages/Letter-head/Main"
 import AppointmentLetter from "./pages/Appointment/Main"
 import Courses from "./pages/Courses";
+import PrivacyPolicy from "./pages/privacy-policy";
+import RefundPolicy from "./pages/refund-policy";
+
 
 const App = () => {
   return (
@@ -30,6 +33,9 @@ const App = () => {
           <Route path="/offer-letter" element={<Generator />} />
           <Route path="/letter-head" element={<LetterHead />} />
           <Route path="/appointment-letter" element={<AppointmentLetter />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

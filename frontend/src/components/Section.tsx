@@ -29,7 +29,7 @@ const Section: React.FC<SectionProps> = ({ id, title, icon: Icon, isActive }) =>
     'severability': "In the event that any provision of these Terms of Service is determined to be unlawful, void or unenforceable, such provision shall nonetheless be enforceable to the fullest extent permitted by applicable law, and the unenforceable portion shall be deemed to be severed from these Terms of Service, such determination shall not affect the validity and enforceability of any other remaining provisions.",
     'termination': "The obligations and liabilities of the parties incurred prior to the termination date shall survive the termination of this agreement for all purposes. These Terms of Service are effective unless and until terminated by either you or us. You may terminate these Terms of Service at any time by notifying us that you no longer wish to use our Services, or when you cease using our site.",
     'entire-agreement': "The failure of us to exercise or enforce any right or provision of these Terms of Service shall not constitute a waiver of such right or provision. These Terms of Service and any policies or operating rules posted by us on this site or in respect to The Service constitutes the entire agreement and understanding between you and us and govern your use of the Service, superseding any prior or contemporaneous agreements, communications and proposals, whether oral or written, between you and us (including, but not limited to, any prior versions of the Terms of Service).",
-    'governing-governing-law': "These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of India.",
+    'governing-law': "These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of India.",
     'changes': "We reserve the right, at our sole discretion, to update, change or replace any part of these Terms of Service by posting updates and changes to our website. It is your responsibility to check our website periodically for changes. Your continued use of or access to our website or the Service following the posting of any changes to these Terms of Service constitutes acceptance of those changes.",
   };
 
@@ -42,9 +42,9 @@ const Section: React.FC<SectionProps> = ({ id, title, icon: Icon, isActive }) =>
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="mb-6"
+          className="mb-6 pb-6 border-b-2"
         >
-          <h2 className="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+          <h2 className="text-xl font-semibold mb-3 text-[#253858] flex items-center">
             <Icon className="mr-2" />
             {title}
           </h2>
