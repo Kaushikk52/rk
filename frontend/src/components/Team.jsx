@@ -13,10 +13,8 @@ import Member4 from '../assets/team-member-images/member-4.jpg'
 
 const Team = () => {
     const teamMembers = [
-        { id: 1, delay: 0, image: Member1, name: 'Member 1', role: 'Role', },
-        { id: 2, delay: 200, image: Member2, name: 'Member 2', role: 'Role', },
-        { id: 3, delay: 400, image: Member3, name: 'Member 3', role: 'Role', },
-        { id: 4, delay: 600, image: Member4, name: 'Member 4', role: 'Role', },
+        { id: 1, delay: 0, image: '/owner-1.jpeg', name: 'Rajesh L Singh', role: 'MD', },
+        { id: 2, delay: 200, image: '/owner-2.jpeg', name: 'Kalpana Ashok Aher', role: 'MD', }
     ]
     return (
         <>
@@ -26,22 +24,22 @@ const Team = () => {
                     <div>
                         <h1 className="text-4xl md:text-6xl font-black">Meet Our Team</h1>
                         <p className="text-lg md:text-xl my-6 font-semibold">
-                         our team is the backbone of our commitment to providing exceptional service and reliable protection. Each member brings unique expertise and a shared passion for securing your future. Together, we work to build trust and deliver peace of mind, one policy at a time.
+                         Our team is the backbone of our commitment to providing exceptional service and reliable protection. Each member brings unique expertise and a shared passion for securing your future. Together, we work to build trust and deliver peace of mind, one policy at a time.
                         </p>
                     </div>
                 </Slide>
             </Fade>
             
-                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
+                <div className='flex gap-6 justify-center'>
                     {teamMembers.map((member) => (
                         <Fade triggerOnce>
-                        <Slide triggerOnce direction='up' delay={member.delay}  key={member.id} className='flex flex-col justify-start p-4 h-full bg-white rounded shadow-lg'>
+                        <Slide triggerOnce direction='up' delay={member.delay}  key={member.id} className='flex flex-col justify-start  p-4 h-full bg-white rounded shadow-lg'>
                         <div>
                             <div>
                                 <img
                                     src={member.image}
                                     alt={member.name}
-                                    className='h-full w-full rounded'
+                                    className='h-64 w-64 rounded object-contain'
                                 />
                             </div>
                             <div className='text-center my-2.5'>
