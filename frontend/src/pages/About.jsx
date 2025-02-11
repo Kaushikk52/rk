@@ -4,6 +4,8 @@ import TeamBG1 from "../assets/about-us-images/team-1.jpg";
 import Team2 from "../assets/about-us-images/team-2.png";
 import House from "../assets/about-us-images/home-insurance.png";
 
+import Team from "../components/Team";
+
 
 const About = () => {
   return (
@@ -109,7 +111,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* <Team /> */}
+      <Team />
     </>
   );
 };
