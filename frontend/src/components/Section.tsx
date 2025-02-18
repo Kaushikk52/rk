@@ -48,7 +48,7 @@ const Section: React.FC<SectionProps> = ({ id, title, icon: Icon, isActive }) =>
             <Icon className="mr-2" />
             {title}
           </h2>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed px-8">
             {content[id]}
           </p>
         </motion.section>

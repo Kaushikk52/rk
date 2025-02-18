@@ -7,7 +7,8 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Layout from "./components/Layouts/Layout";
-import Conditions from "./pages/Conditions";
+// import Conditions from "./pages/Conditions";
+import Conditions2 from "./pages/Conditions2";
 import InsuranceDetailsPage from "./pages/InsuranceDetailsPage";
 import Generator from "./pages/Offer-letter/Main"
 import LetterHead from "./pages/Letter-head/Main"
@@ -28,7 +29,8 @@ const App = () => {
           <Route path="/about-us" element={<About />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/courses" element={<Courses />} />
-          <Route path="/conditions" element={<Conditions />} />
+          {/* <Route path="/conditions" element={<Conditions />} /> */}
+          <Route path="/conditions" element={<Conditions2 />} />
           <Route path="/insurance-details/:title" element={<InsuranceDetailsPage />} />
           <Route path="/offer-letter" element={<Generator />} />
           <Route path="/letter-head" element={<LetterHead />} />

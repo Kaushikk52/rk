@@ -42,7 +42,7 @@ const Conditions2 = () => {
                 </motion.h1>
 
                 <motion.div
-                    className=" bg-gray-100 rounded-md p-4 lg:p-10"
+                    className=" rounded-md p-4 lg:p-10"
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
